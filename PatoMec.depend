@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1776167184 source:c:\users\17898981\projetos\patronicos\main.c
+	<allegro5/allegro.h>
+	<allegro5/allegro_primitives.h>
+	<stdio.h>
+
