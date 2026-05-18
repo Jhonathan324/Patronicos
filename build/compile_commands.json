@@ -1,0 +1,8 @@
+[
+{
+  "directory": "C:/Users/17898981/projetos/trabalho_ipe/build",
+  "command": "C:\\PROGRA~1\\CODEBL~1\\MinGW\\bin\\gcc.exe  @CMakeFiles/trabalho_ipe.dir/includes_C.rsp -g -std=gnu11 -o CMakeFiles\\trabalho_ipe.dir\\src\\main.c.obj -c C:\\Users\\17898981\\projetos\\trabalho_ipe\\src\\main.c",
+  "file": "C:/Users/17898981/projetos/trabalho_ipe/src/main.c",
+  "output": "CMakeFiles/trabalho_ipe.dir/src/main.c.obj"
+}
+]

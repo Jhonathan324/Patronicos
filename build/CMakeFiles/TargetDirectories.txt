@@ -1,0 +1,3 @@
+C:/Users/17898981/projetos/trabalho_ipe/build/CMakeFiles/trabalho_ipe.dir
+C:/Users/17898981/projetos/trabalho_ipe/build/CMakeFiles/edit_cache.dir
+C:/Users/17898981/projetos/trabalho_ipe/build/CMakeFiles/rebuild_cache.dir
