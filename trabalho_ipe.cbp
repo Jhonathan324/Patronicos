@@ -38,6 +38,11 @@
 		<Compiler>
 			<Add directory="allegro/include" />
 		</Compiler>
+		<Unit filename="src/gerais.h" />
+		<Unit filename="src/jogo.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/jogo.h" />
 		<Unit filename="src/main.c">
 			<Option compilerVar="CC" />
 			<Option virtualFolder="src/" />

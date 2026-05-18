@@ -17,6 +17,8 @@ Ele introduz conceitos fundamentais de desenvolvimento de jogos:
 #include <allegro5/keyboard.h>
 #include <stdio.h>
 #include <stdbool.h>
+#include "gerais.h"
+
 
 // Constantes de configuração da janela e do sprite
 #define WIDTH 640
@@ -29,7 +31,7 @@ Ele introduz conceitos fundamentais de desenvolvimento de jogos:
 enum DIRECOES { CIMA, BAIXO, ESQUERDA, DIREITA };
 
 // Estrutura que agrupa todos os dados do nosso personagem
-typedef struct {
+typedef struct Personagem{
     float x;              // Posição no eixo X
     float y;              // Posição no eixo Y
     float velocidade;     // Velocidade de deslocamento (pixels por frame)
@@ -54,6 +56,7 @@ int main() {
     ALLEGRO_DISPLAY *display = al_create_display(WIDTH, HEIGHT);
     ALLEGRO_EVENT_QUEUE *queue = al_create_event_queue();
     ALLEGRO_TIMER *timer = al_create_timer(1.0 / 60.0); // 60 FPS
+    
 
     al_register_event_source(queue, al_get_display_event_source(display));
     al_register_event_source(queue, al_get_timer_event_source(timer));
