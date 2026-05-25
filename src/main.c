@@ -56,7 +56,7 @@ int main() {
     ALLEGRO_DISPLAY *display = al_create_display(WIDTH, HEIGHT);
     ALLEGRO_EVENT_QUEUE *queue = al_create_event_queue();
     ALLEGRO_TIMER *timer = al_create_timer(1.0 / 60.0); // 60 FPS
-    
+
 
     al_register_event_source(queue, al_get_display_event_source(display));
     al_register_event_source(queue, al_get_timer_event_source(timer));
@@ -70,7 +70,7 @@ int main() {
     al_reserve_samples(1);
     ALLEGRO_SAMPLE *sample = al_load_sample("../../sons/sound.wav");
     if (!sample) { printf("Erro ao carregar som.\n"); return -1; }
-    
+
     ALLEGRO_SAMPLE_INSTANCE *sample_instance = al_create_sample_instance(sample);
     al_attach_sample_instance_to_mixer(sample_instance, al_get_default_mixer());
 

@@ -2,14 +2,12 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6" />
 	<Project>
-		<Option title="trabalho_ipe" />
+		<Option title="Patronicos" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
-		<Option virtualFolders="src/" />
 		<Build>
 			<Target title="Debug">
-				<Option output="bin/Debug/trabalho_ipe" prefix_auto="1" extension_auto="1" />
-				<Option working_dir="allegro/bin" />
+				<Option output="bin/Debug/Patronicos" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Debug/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
@@ -21,8 +19,7 @@
 				</Linker>
 			</Target>
 			<Target title="Release">
-				<Option output="bin/Release/trabalho_ipe" prefix_auto="1" extension_auto="1" />
-				<Option working_dir="allegro/bin" />
+				<Option output="bin/Release/Patronicos" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Release/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
@@ -36,8 +33,10 @@
 			</Target>
 		</Build>
 		<Compiler>
+			<Add option="-Wall" />
 			<Add directory="allegro/include" />
 		</Compiler>
+		<Unit filename="src/X Macros.h" />
 		<Unit filename="src/gerais.h" />
 		<Unit filename="src/jogo.c">
 			<Option compilerVar="CC" />
@@ -45,7 +44,6 @@
 		<Unit filename="src/jogo.h" />
 		<Unit filename="src/main.c">
 			<Option compilerVar="CC" />
-			<Option virtualFolder="src/" />
 		</Unit>
 		<Extensions>
 			<lib_finder disable_auto="1" />
