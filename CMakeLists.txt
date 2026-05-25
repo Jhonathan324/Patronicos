@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 
-project(trabalho_ipe C)
+project(Patronicos C)
 
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_STANDARD_REQUIRED ON)
@@ -45,8 +45,8 @@ endif()
 
 # --- ALVO DO PROJETO ---
 
-add_executable(trabalho_ipe src/main.c)
+add_executable(Patronicos src/main.c)
 
-target_include_directories(trabalho_ipe PRIVATE ${ALLEGRO_INCLUDE_DIR})
+target_include_directories(Patronicos PRIVATE ${ALLEGRO_INCLUDE_DIR})
 
-target_link_libraries(trabalho_ipe PRIVATE ${ALLEGRO_LIBRARIES})
+target_link_libraries(Patronicos PRIVATE ${ALLEGRO_LIBRARIES})
