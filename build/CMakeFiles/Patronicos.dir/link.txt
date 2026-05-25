@@ -1,0 +1,3 @@
+"C:\Program Files\CodeBlocks\MinGW\bin\cmake.exe" -E rm -f CMakeFiles\Patronicos.dir/objects.a
+C:\PROGRA~1\CODEBL~1\MinGW\bin\ar.exe qc CMakeFiles\Patronicos.dir/objects.a @CMakeFiles\Patronicos.dir\objects1.rsp
+C:\PROGRA~1\CODEBL~1\MinGW\bin\gcc.exe -g -Wl,--whole-archive CMakeFiles\Patronicos.dir/objects.a -Wl,--no-whole-archive -o Patronicos.exe -Wl,--out-implib,libPatronicos.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\Patronicos.dir\linkLibs.rsp

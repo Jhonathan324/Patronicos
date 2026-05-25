@@ -56,10 +56,10 @@ RM = "C:\Program Files\CodeBlocks\MinGW\bin\cmake.exe" -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\17898981\projetos\trabalho_ipe
+CMAKE_SOURCE_DIR = C:\Users\17898981\projetos\Patronicos
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\17898981\projetos\trabalho_ipe\build
+CMAKE_BINARY_DIR = C:\Users\17898981\projetos\Patronicos\build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -86,9 +86,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\17898981\projetos\trabalho_ipe\build\CMakeFiles C:\Users\17898981\projetos\trabalho_ipe\build\\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\17898981\projetos\Patronicos\build\CMakeFiles C:\Users\17898981\projetos\Patronicos\build\\CMakeFiles\progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\17898981\projetos\trabalho_ipe\build\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\17898981\projetos\Patronicos\build\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -116,24 +116,24 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named trabalho_ipe
+# Target rules for targets named Patronicos
 
 # Build rule for target.
-trabalho_ipe: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 trabalho_ipe
-.PHONY : trabalho_ipe
+Patronicos: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Patronicos
+.PHONY : Patronicos
 
 # fast build rule for target.
-trabalho_ipe/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\trabalho_ipe.dir\build.make CMakeFiles/trabalho_ipe.dir/build
-.PHONY : trabalho_ipe/fast
+Patronicos/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Patronicos.dir\build.make CMakeFiles/Patronicos.dir/build
+.PHONY : Patronicos/fast
 
 src/main.obj: src/main.c.obj
 .PHONY : src/main.obj
 
 # target to build an object file
 src/main.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\trabalho_ipe.dir\build.make CMakeFiles/trabalho_ipe.dir/src/main.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Patronicos.dir\build.make CMakeFiles/Patronicos.dir/src/main.c.obj
 .PHONY : src/main.c.obj
 
 src/main.i: src/main.c.i
@@ -141,7 +141,7 @@ src/main.i: src/main.c.i
 
 # target to preprocess a source file
 src/main.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\trabalho_ipe.dir\build.make CMakeFiles/trabalho_ipe.dir/src/main.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Patronicos.dir\build.make CMakeFiles/Patronicos.dir/src/main.c.i
 .PHONY : src/main.c.i
 
 src/main.s: src/main.c.s
@@ -149,7 +149,7 @@ src/main.s: src/main.c.s
 
 # target to generate assembly for a file
 src/main.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\trabalho_ipe.dir\build.make CMakeFiles/trabalho_ipe.dir/src/main.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Patronicos.dir\build.make CMakeFiles/Patronicos.dir/src/main.c.s
 .PHONY : src/main.c.s
 
 # Help Target
@@ -160,7 +160,7 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... trabalho_ipe
+	@echo ... Patronicos
 	@echo ... src/main.obj
 	@echo ... src/main.i
 	@echo ... src/main.s
