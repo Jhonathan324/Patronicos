@@ -1,8 +1,7 @@
 # depslib dependency file v1.0
-1779738276 source:c:\users\17898981\projetos\patronicos\src\jogo.c
+1779743834 source:c:\users\17898981\projetos\patronicos\src\jogo.c
 
-1779741673 source:c:\users\17898981\projetos\patronicos\src\main.c
-	"gerais.h"
+1779743834 source:c:\users\17898981\projetos\patronicos\src\main.c
 	<allegro5/allegro.h>
 	<allegro5/allegro_font.h>
 	<allegro5/allegro_ttf.h>
@@ -14,8 +13,9 @@
 	<allegro5/keyboard.h>
 	<stdio.h>
 	<stdbool.h>
+	"gerais.h"
 
-1779738276 c:\users\17898981\projetos\patronicos\src\gerais.h
+1779743834 c:\users\17898981\projetos\patronicos\src\gerais.h
 	<allegro5/allegro.h>
 	<allegro5/allegro_font.h>
 	<allegro5/allegro_ttf.h>
@@ -330,5 +330,5 @@
 1777491112 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\allegro_image.h
 	"allegro5/base.h"
 
-1779738276 c:\users\17898981\projetos\patronicos\src\x macros.h
+1779743834 c:\users\17898981\projetos\patronicos\src\x macros.h
 
