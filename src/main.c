@@ -19,7 +19,14 @@ Ele introduz conceitos fundamentais de desenvolvimento de jogos:
 #include <stdbool.h>
 #include "gerais.h"
 
+VariveisGerais gerais;
 
+void LoopPrincipal(){
+    al_wait_for_event(gerais.fila_evento, &gerais.evento);
+    if(gerais.evento.type == ALLEGRO_EVENT_DISPLAY_CLOSE){
+        gerais.rodando = false;
+    }
+}
 
 
 int main() {
@@ -34,18 +41,21 @@ int main() {
     al_install_audio();
     al_init_acodec_addon();
 
-    VariveisGerais gerais;
+    
     Tamanhos tamanhos;
 
     tamanhos.escala = 0;
     InitCenaGeral(&gerais, &tamanhos);
     
 
-    
+    while(gerais.rodando){
+        LoopPrincipal();
+    }
 
     // 6. Limpeza de Memória
+
     //al_destroy_sample_instance(sample_instance);
-    // al_destroy_sample(sample);
+    //al_destroy_sample(sample);
     //al_destroy_bitmap(sprite_sheet);
     //al_destroy_font(font);
     al_destroy_timer(gerais.timer);

@@ -12,29 +12,29 @@ void GetTamanhos(Tamanhos *tamanhos)
         tamanhos->tela[1] = 360;
     }
 
-    tamanhos->menu[0]         = tamanhos->tela[0] * (float)CantoFixo          / 640 * 6;
-    tamanhos->menu[1]         = tamanhos->tela[1] * (float)CantoFixo          / 360 * 6;
+    tamanhos->menu[0]         = tamanhos->tela[0] * (float)CantoFixo           / 640 * 6;
+    tamanhos->menu[1]         = tamanhos->tela[1] * (float)CantoFixo           / 360 * 6;
 
-    tamanhos->bloco1[0]       = tamanhos->tela[0] * (float)MedidaImgBloco     / 640 * 2;
-    tamanhos->bloco1[1]       = tamanhos->tela[1] * (float)MedidaImgBloco     / 360 * 2;
+    tamanhos->bloco1[0]       = tamanhos->tela[0] * (float)MedidaImgBloco      / 640 * 2;
+    tamanhos->bloco1[1]       = tamanhos->tela[1] * (float)MedidaImgBloco      / 360 * 2;
 
-    tamanhos->botao1[0]       = tamanhos->tela[0] * (float)MedidaImgBloco     / 640 * 2;
-    tamanhos->botao1[1]       = tamanhos->tela[1] * (float)MedidaImgBloco     / 360 * 2;
+    tamanhos->botao1[0]       = tamanhos->tela[0] * (float)MedidaImgBloco      / 640 * 2;
+    tamanhos->botao1[1]       = tamanhos->tela[1] * (float)MedidaImgBloco      / 360 * 2;
 
-    tamanhos->botao2[0]       = tamanhos->tela[0] * (float)MedidaImgBloco     / 640 * 2;
-    tamanhos->botao2[1]       = tamanhos->tela[1] * (float)MedidaImgBloco     / 360 * 2;
+    tamanhos->botao2[0]       = tamanhos->tela[0] * (float)MedidaImgBloco      / 640 * 2;
+    tamanhos->botao2[1]       = tamanhos->tela[1] * (float)MedidaImgBloco      / 360 * 2;
 
-    tamanhos->barra_vida[0]   = tamanhos->tela[0] * (float)(EscalaHud*4)      / 640 * 2;
-    tamanhos->barra_vida[1]   = tamanhos->tela[1] * (float)(EscalaHud*1)      / 360 * 2;
+    tamanhos->barra_vida[0]   = tamanhos->tela[0] * (float)(EscalaHud*4)       / 640 * 2;
+    tamanhos->barra_vida[1]   = tamanhos->tela[1] * (float)(EscalaHud*1)       / 360 * 2;
 
-    tamanhos->jogador[0]      = tamanhos->tela[0] * (float)MedidaImgPlayerX   / 640 * 2;
-    tamanhos->jogador[1]      = tamanhos->tela[1] * (float)MedidaImgPlayerY   / 360 * 2;
+    tamanhos->jogador[0]      = tamanhos->tela[0] * (float)MedidaImgPlayerX    / 640 * 2;
+    tamanhos->jogador[1]      = tamanhos->tela[1] * (float)MedidaImgPlayerY    / 360 * 2;
 
-    tamanhos->inimigo1[0]     = tamanhos->tela[0] * (float)MedidaImgInimigo1X / 640 * 2;
-    tamanhos->inimigo1[1]     = tamanhos->tela[1] * (float)MedidaImgInimigo1Y / 360 * 2;
+    tamanhos->inimigo1[0]     = tamanhos->tela[0] * (float)MedidaImgInimigo1X  / 640 * 2;
+    tamanhos->inimigo1[1]     = tamanhos->tela[1] * (float)MedidaImgInimigo1Y  / 360 * 2;
 
-    tamanhos->inimigo2[0]     = tamanhos->tela[0] * (float)MedidaImgInimigo2X / 640;
-    tamanhos->inimigo2[1]     = tamanhos->tela[1] * (float)MedidaImgInimigo2Y / 360;
+    tamanhos->inimigo2[0]     = tamanhos->tela[0] * (float)MedidaImgInimigo2X  / 640 * 2;
+    tamanhos->inimigo2[1]     = tamanhos->tela[1] * (float)MedidaImgInimigo2Y  / 360 * 2;
 
     tamanhos->jogador_coli[0] = tamanhos->tela[0] * (float)MedidaImgPlayerColiX / 640 * 2;
     tamanhos->jogador_coli[1] = tamanhos->tela[1] * (float)MedidaImgPlayerColiY / 360 * 2;
@@ -63,7 +63,7 @@ void InitCenaGeral(VariveisGerais *geral, Tamanhos *tamanhos){
     geral->resolucao_atual[1]   = tamanhos->tela[1];
     geral->resolucao_antiga[0]  = tamanhos->tela[0];
     geral->resolucao_antiga[1]  = tamanhos->tela[1];
-    
+
 
     al_register_event_source(geral->fila_evento, al_get_display_event_source(geral->janela));
     al_register_event_source(geral->fila_evento, al_get_timer_event_source(geral->timer));

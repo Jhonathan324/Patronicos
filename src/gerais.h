@@ -153,6 +153,7 @@ typedef struct VariveisGerais
 {
     ALLEGRO_DISPLAY *janela;
     ALLEGRO_EVENT_QUEUE *fila_evento;
+    ALLEGRO_EVENT evento;
     ALLEGRO_TIMER *timer;
     VMM_Ponto ponto_mouse;
     ALLEGRO_BITMAP *textura_hud;
