@@ -2,6 +2,8 @@
 #define X_MACROS_H_INCLUDED
 
 
+
+
 #define TabelaPlayerAnim \
 	X(VMM_PLAYER_ATAQUE,            4) \
 	X(VMM_PLAYER_ATAQUE2,           6) \
