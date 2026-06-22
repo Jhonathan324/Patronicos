@@ -171,6 +171,7 @@ typedef struct VariveisGerais
     int resolucao_antiga[2];
     float mouse_x, mouse_y;
     float mouse_x_back, mouse_y_back;
+    Tamanhos tamanhos;
     Player jogador;
     ESTADO_JOGO cena;
     ESTADO_JOGO cena_passada;
@@ -219,6 +220,7 @@ void GetTamanhos(Tamanhos *tamanhos);
 
 // Funções desnecessarias
 void AtribuirFRectInRectA(VMM_Retangulo *fretangulo, VMM_Retangulo *retangulo);
+void DesenharFogo(float tamanho_tela[2], short matriz[][64]);
 
 // Funções para ajustes dinamicos
 void CentralizarRectInRect(VMM_Retangulo *rect_pai, VMM_Retangulo *rect_filho);
@@ -249,20 +251,20 @@ void DestruirBotaoExpansivo(BotaoExpansivo *botao);
 
 // Funções só pra tratamento de eventos
 void ModuloEvento(VariveisGerais *geral);
-void InitCenaGeral(VariveisGerais *geral, Tamanhos *tamanhos);
-void CalcularGeral(VariveisGerais *geral, Tamanhos *tamanhos);
+void InitCenaGeral(VariveisGerais *geral);
+void CalcularGeral(VariveisGerais *geral);
 
 // Funções para cenas em especico
-void InitCenaMenu(VariveisGerais *geral, VariveisMenu *menu, Tamanhos tamanhos);
+void InitCenaMenu(VariveisGerais *geral, VariveisMenu *menu);
 void LoopCenaMenu(VariveisGerais *geral, VariveisMenu *menu);
 void DesenharCenaMenu(VariveisGerais geral, VariveisMenu menu);
 
-void InitCenaPause(VariveisGerais *geral, VariveisPause *pause, Tamanhos tamanhos);
+void InitCenaPause(VariveisGerais *geral, VariveisPause *pause);
 void LoopCenaPause(VariveisGerais *geral, VariveisPause *pause);
 void DesenharCenaPause(VariveisGerais geral, VariveisPause pause);
 
-void InitCenaConf(VariveisGerais *geral, VariveisConf *conf, Tamanhos tamanhos);
-void LoopCenaConf(VariveisGerais *geral, VariveisConf *conf, Tamanhos *tamanhos);
+void InitCenaConf(VariveisGerais *geral, VariveisConf *conf);
+void LoopCenaConf(VariveisGerais *geral, VariveisConf *conf);
 void DesenharCenaConf(VariveisGerais geral, VariveisConf conf);
 
 

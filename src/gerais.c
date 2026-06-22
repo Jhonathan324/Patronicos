@@ -1,5 +1,16 @@
 #include "gerais.h"
 
+
+
+
+void DesenharRetangulo(VMM_Retangulo *retangulo, ALLEGRO_COLOR cor){
+    al_draw_filled_rectangle(retangulo->x,retangulo->y,retangulo->x+retangulo->w,retangulo->y+retangulo->h, cor);
+}
+
+
+
+
+
 ALLEGRO_COLOR CorFogo(short cor){
     switch(cor){
         case 0:
@@ -152,12 +163,6 @@ ALLEGRO_COLOR CorFogo(short cor){
     }
 }
 
-
-void DesenharRetangulo(VMM_Retangulo *retangulo, ALLEGRO_COLOR cor){
-    al_draw_filled_rectangle(retangulo->x,retangulo->y,retangulo->x+retangulo->w,retangulo->y+retangulo->h, cor);
-}
-
-
 void DesenharFogo(float tamanho_tela[2], short matriz[][64]){
         
     for(int i = 39; i>=0; i--){
@@ -167,8 +172,12 @@ void DesenharFogo(float tamanho_tela[2], short matriz[][64]){
                 if (matriz[i][j] < 0) matriz[i][j] = 0;
             }
             DesenharRetangulo(&(VMM_Retangulo){j*10,35*10-i*10,10,10},CorFogo(matriz[i][j]));
-            
         }
     }
 
+}
+
+void DestruirMoldura(Moldura *moldura){
+    al_destroy_bitmap(moldura->textura);
+    moldura->textura = NULL;
 }

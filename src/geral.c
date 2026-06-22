@@ -41,14 +41,23 @@ void GetTamanhos(Tamanhos *tamanhos)
 
 }
 
-void InitCenaGeral(VariveisGerais *geral, Tamanhos *tamanhos){
-    GetTamanhos(tamanhos);
-    geral->janela               = al_create_display(tamanhos->tela[0], tamanhos->tela[1]);
+void InitCenaGeral(VariveisGerais *geral){
+    al_init();
+    al_init_font_addon();
+    al_init_ttf_addon();
+    al_init_primitives_addon();
+    al_init_image_addon();
+    al_install_mouse();
+    al_install_keyboard();
+    al_install_audio();
+    al_init_acodec_addon();
+
+
+    GetTamanhos(&geral->tamanhos);
+    geral->janela               = al_create_display(geral->tamanhos.tela[0], geral->tamanhos.tela[1]);
     geral->textura_hud          = al_load_bitmap("../../sprites/ui/panels/hud geral.png");
     geral->fila_evento          = al_create_event_queue();
     geral->timer                = al_create_timer(1.0 / 60.0); // 60 FPS
-
-
     geral->rodando              = true;
     geral->fullscrean           = false;
     geral->troca_reso           = false;
@@ -59,10 +68,10 @@ void InitCenaGeral(VariveisGerais *geral, Tamanhos *tamanhos){
     geral->botao_mouse_gira     = false;
     geral->cena                 = CENA_MENU;
     geral->cena_continuar       = CENA_JOGO;
-    geral->resolucao_atual[0]   = tamanhos->tela[0];
-    geral->resolucao_atual[1]   = tamanhos->tela[1];
-    geral->resolucao_antiga[0]  = tamanhos->tela[0];
-    geral->resolucao_antiga[1]  = tamanhos->tela[1];
+    geral->resolucao_atual[0]   = geral->tamanhos.tela[0];
+    geral->resolucao_atual[1]   = geral->tamanhos.tela[1];
+    geral->resolucao_antiga[0]  = geral->tamanhos.tela[0];
+    geral->resolucao_antiga[1]  = geral->tamanhos.tela[1];
 
 
     al_register_event_source(geral->fila_evento, al_get_display_event_source(geral->janela));
