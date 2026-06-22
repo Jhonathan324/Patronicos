@@ -72,6 +72,10 @@ void InitCenaGeral(VariveisGerais *geral){
     geral->resolucao_atual[1]   = geral->tamanhos.tela[1];
     geral->resolucao_antiga[0]  = geral->tamanhos.tela[0];
     geral->resolucao_antiga[1]  = geral->tamanhos.tela[1];
+    memset(geral->matriz_fogo,0,sizeof(geral->matriz_fogo));
+    for(int j = 0; j<64;j++){
+        geral->matriz_fogo[0][j] = 36;
+    }
 
 
     al_register_event_source(geral->fila_evento, al_get_display_event_source(geral->janela));

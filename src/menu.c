@@ -5,7 +5,7 @@
 void InitCenaMenu(VariveisGerais *geral, VariveisMenu *menu)
 {
     // fonte
-    ALLEGRO_FONT *fonte = al_load_ttf_font("fontes/arial.ttf", geral->tamanhos.botao1[1], NULL);
+    menu->fonte = al_load_ttf_font("../../fontes/arial.ttf", geral->tamanhos.botao1[1], 0);
 
     // fundo
     if(menu->imagem) al_destroy_bitmap(menu->imagem);
@@ -20,7 +20,7 @@ void InitCenaMenu(VariveisGerais *geral, VariveisMenu *menu)
     //SDL_FRect rect_janela = {0, 20, janela_w, janela_h};
     //CentralizarRectInRect(&rect_janela, &rect_moldura); // centralização do menu com base na tela
     DestruirMoldura(&menu->moldura);
-    menu->moldura = InitMoldura(&rect_moldura, "assets/imagens/ui/panels/moldura de madeira.png");
+    menu->moldura = InitMoldura(&rect_moldura, "../../sprites/ui/panels/moldura de madeira.png");
 
     // Criação dos botões
     DestruirBotao(&menu->botao_conf);
@@ -28,50 +28,51 @@ void InitCenaMenu(VariveisGerais *geral, VariveisMenu *menu)
     DestruirBotao(&menu->botao_iniciar);
     DestruirBotao(&menu->botao_sair);
     menu->botao_iniciar =
-        InitBotao(geral->renderizador,
-                  &(SDL_FRect){0, 0, tamanhos.botao1[0], tamanhos.botao1[1]}, // retangulo base
-                  "assets/imagens/ui/buttons/botão.png",
+        InitBotao(
+                  &(VMM_Retangulo){0, 0, geral->tamanhos.botao1[0], geral->tamanhos.botao1[1]}, // retangulo base
+                  "../../sprites/ui/buttons/botão.png",
                   "Iniciar Jogo",
-                  (SDL_Color){70, 70, 70, 255},
-                  (SDL_Color)SEMI_PRETO,
+                  al_map_rgb(70, 70, 70),
+                  al_map_rgb SEMI_PRETO,
                   CENA_JOGO,
-                  fonte,
-                  (SDL_Color)PRETO);
+                  menu->fonte,
+                  al_map_rgb PRETO);
 
     menu->botao_criacao =
-        InitBotao(geral->renderizador,
-                  &(SDL_FRect){0, 0, tamanhos.botao1[0], tamanhos.botao1[1]}, // retangulo base
-                  "assets/imagens/ui/buttons/botão.png",
+        InitBotao(
+                  &(VMM_Retangulo){0, 0, geral->tamanhos.botao1[0], geral->tamanhos.botao1[1]}, // retangulo base
+                  "../../sprites/ui/buttons/botão.png",
                   "Criar Mapas",
-                  (SDL_Color){70, 70, 70, 255},
-                  (SDL_Color)SEMI_PRETO,
+                  al_map_rgb(70, 70, 70),
+                  al_map_rgb SEMI_PRETO,
                   CENA_CRIACAO,
-                  fonte,
-                  (SDL_Color)PRETO);
+                  menu->fonte,
+                  al_map_rgb PRETO);
 
     menu->botao_conf =
-        InitBotao(geral->renderizador,
-                  &(SDL_FRect){0, 0, tamanhos.botao1[0], tamanhos.botao1[1]}, // retangulo base
-                  "assets/imagens/ui/buttons/botão.png",
+        InitBotao(
+                  &(VMM_Retangulo){0, 0, geral->tamanhos.botao1[0], geral->tamanhos.botao1[1]}, // retangulo base
+                  "../../sprites/ui/buttons/botão.png",
                   "Configuracoes",
-                  (SDL_Color){70, 70, 70, 255},
-                  (SDL_Color)SEMI_PRETO,
+                  al_map_rgb(70, 70, 70),
+                  al_map_rgb SEMI_PRETO,
                   CENA_CONF,
-                  fonte,
-                  (SDL_Color)PRETO);
+                  menu->fonte,
+                  al_map_rgb PRETO);
 
     menu->botao_sair =
-        InitBotao(geral->renderizador,
-                  &(SDL_FRect){0, 0, tamanhos.botao1[0], tamanhos.botao1[1]}, // retangulo base
-                  "assets/imagens/ui/buttons/botão.png",
+        InitBotao(
+                  &(VMM_Retangulo){0, 0, geral->tamanhos.botao1[0], geral->tamanhos.botao1[1]}, // retangulo base
+                  "../../sprites/ui/buttons/botão.png",
                   "Sair do Jogo",
-                  (SDL_Color){70, 70, 70, 255},
-                  (SDL_Color)SEMI_PRETO,
-                  CENA_SAIR, fonte,
-                  (SDL_Color)PRETO);
+                  al_map_rgb(70, 70, 70),
+                  al_map_rgb SEMI_PRETO,
+                  CENA_SAIR,
+                  menu->fonte,
+                  al_map_rgb PRETO);
 
     // Necessario para alinhar os botões de forma mais pratica
-    SDL_FRect *retangulos[] = {
+    VMM_Retangulo *retangulos[] = {
         &menu->botao_iniciar.retangulo,
         &menu->botao_criacao.retangulo,
         &menu->botao_conf.retangulo,
@@ -80,4 +81,26 @@ void InitCenaMenu(VariveisGerais *geral, VariveisMenu *menu)
 
     // Calculo das partes dos botões para as imagens
 
+}
+
+void DesenharCenaMenu(VariveisGerais geral, VariveisMenu menu){
+    Botao *botoes[] = {
+        &menu.botao_iniciar,
+        &menu.botao_criacao,
+        &menu.botao_conf,
+        &menu.botao_sair};
+
+    // limpeza de tela
+    al_clear_to_color(al_map_rgb(menu.cor_fundo.r, menu.cor_fundo.g, menu.cor_fundo.b));
+    al_draw_scaled_bitmap(menu.imagem, 0, 0, 640, 360, 0, 0, geral.tamanhos.tela[0], geral.tamanhos.tela[1], 0);
+
+    
+    // botões
+    // DesenharMoldura(geral.renderizador, menu.moldura);
+    for (int i = 0; i < QuantBotao; i++){
+        DesenharBotao(menu.fonte, *botoes[i]);
+  
+    }
+
+   
 }

@@ -20,12 +20,6 @@ Ele introduz conceitos fundamentais de desenvolvimento de jogos:
 VariveisGerais gerais;
 Tamanhos tamanhos;
 
-short matriz[40][64] = {0}; 
-
-
-
-
-
 
 int main() {
     tamanhos.escala = 0;
@@ -34,9 +28,7 @@ int main() {
     VariveisMenu menu = (VariveisMenu){AZUL};
     InitCenaMenu(&gerais, &menu);
     
-    for(int j = 0; j<64;j++){
-        matriz[0][j] = 36;
-    }
+    
     
     
     al_start_timer(gerais.timer);
@@ -46,8 +38,17 @@ int main() {
             gerais.rodando = false;
         }
         else if (gerais.evento.type == ALLEGRO_EVENT_TIMER){
-            al_clear_to_color(al_map_rgb(0, 0, 0));
-            DesenharFogo(tamanhos.tela, matriz);
+            switch(gerais.cena){
+                case(CENA_MENU):{
+                    DesenharCenaMenu(gerais, menu);
+                    //DesenharFogo(gerais.tamanhos.tela, gerais.matriz_fogo);
+                }break;
+
+                default:{
+                    gerais.cena = CENA_MENU;
+                }break;
+            }
+
 
             al_flip_display();
         }

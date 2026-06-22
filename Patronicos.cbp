@@ -39,12 +39,22 @@
 			<Add directory="allegro/include" />
 		</Compiler>
 		<Unit filename="src/X Macros.h" />
+		<Unit filename="src/gerais.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="src/gerais.h" />
+		<Unit filename="src/geral.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="src/jogo.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="src/jogo.h" />
+		<Unit filename="src/main antigo.txt" />
 		<Unit filename="src/main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/menu.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Extensions>
