@@ -31,21 +31,7 @@ void LoopPrincipal(){
     }
     else if (gerais.evento.type == ALLEGRO_EVENT_TIMER){
         al_clear_to_color(al_map_rgb(0, 0, 0));
-        for(int i = 39; i>=0; i--){
-            for(int j = 0; j<64; j++){
-                if(i > 0){
-                    
-                    matriz[i][j] = matriz[i-1][j] - 1 - rand()%2;
-                    if (matriz[i][j] < 0) matriz[i][j] = 0;
-                }
-                //printf("%d ", matriz[i][j]);
-                
-                DesenharRetangulo(&(VMM_Retangulo){j*10,35*10-i*10,10,10},CorFogo(matriz[i][j]));
-                
-            }
-            //printf("\n");
-        }
-        //printf("\n");
+        DesenharFogo(tamanhos.tela, matriz);
 
         al_flip_display();
     }
