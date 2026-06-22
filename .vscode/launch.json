@@ -1,0 +1,38 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Executar Projeto (Allegro)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${command:cmake.launchTargetPath}",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}/allegro/bin",
+            "externalConsole": false,
+            "setupCommands": [
+                {
+                    "description": "Habilitar formatação amigável para GDB",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            // CONFIGURAÇÕES ESPECÍFICAS PARA WINDOWS
+            "windows": {
+                "MIMode": "gdb",
+                "miDebuggerPath": "C:/Program Files/CodeBlocks/MinGW/bin/gdb.exe",
+                "environment": [
+                    {
+                        "name": "PATH",
+                        "value": "${env:PATH};${workspaceFolder}/allegro/bin"
+                    }
+                ]
+            },
+            // CONFIGURAÇÕES ESPECÍFICAS PARA LINUX
+            "linux": {
+                "MIMode": "gdb",
+                "miDebuggerPath": "/usr/bin/gdb"
+            }
+        }
+    ]
+}
