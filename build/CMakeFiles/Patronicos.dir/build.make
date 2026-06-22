@@ -43,10 +43,10 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "C:\Program Files\CodeBlocks\MinGW\bin\cmake.exe"
+CMAKE_COMMAND = "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe"
 
 # The command to remove a file.
-RM = "C:\Program Files\CodeBlocks\MinGW\bin\cmake.exe" -E rm -f
+RM = "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -71,11 +71,56 @@ include CMakeFiles/Patronicos.dir/flags.make
 CMakeFiles/Patronicos.dir/codegen:
 .PHONY : CMakeFiles/Patronicos.dir/codegen
 
+CMakeFiles/Patronicos.dir/src/gerais.c.obj: CMakeFiles/Patronicos.dir/flags.make
+CMakeFiles/Patronicos.dir/src/gerais.c.obj: CMakeFiles/Patronicos.dir/includes_C.rsp
+CMakeFiles/Patronicos.dir/src/gerais.c.obj: C:/Users/17898981/projetos/Patronicos/src/gerais.c
+CMakeFiles/Patronicos.dir/src/gerais.c.obj: CMakeFiles/Patronicos.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\17898981\projetos\Patronicos\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/Patronicos.dir/src/gerais.c.obj"
+	C:\PROGRA~1\CODEBL~1\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Patronicos.dir/src/gerais.c.obj -MF CMakeFiles\Patronicos.dir\src\gerais.c.obj.d -o CMakeFiles\Patronicos.dir\src\gerais.c.obj -c C:\Users\17898981\projetos\Patronicos\src\gerais.c
+
+CMakeFiles/Patronicos.dir/src/gerais.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/Patronicos.dir/src/gerais.c.i"
+	C:\PROGRA~1\CODEBL~1\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\17898981\projetos\Patronicos\src\gerais.c > CMakeFiles\Patronicos.dir\src\gerais.c.i
+
+CMakeFiles/Patronicos.dir/src/gerais.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/Patronicos.dir/src/gerais.c.s"
+	C:\PROGRA~1\CODEBL~1\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\17898981\projetos\Patronicos\src\gerais.c -o CMakeFiles\Patronicos.dir\src\gerais.c.s
+
+CMakeFiles/Patronicos.dir/src/geral.c.obj: CMakeFiles/Patronicos.dir/flags.make
+CMakeFiles/Patronicos.dir/src/geral.c.obj: CMakeFiles/Patronicos.dir/includes_C.rsp
+CMakeFiles/Patronicos.dir/src/geral.c.obj: C:/Users/17898981/projetos/Patronicos/src/geral.c
+CMakeFiles/Patronicos.dir/src/geral.c.obj: CMakeFiles/Patronicos.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\17898981\projetos\Patronicos\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/Patronicos.dir/src/geral.c.obj"
+	C:\PROGRA~1\CODEBL~1\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Patronicos.dir/src/geral.c.obj -MF CMakeFiles\Patronicos.dir\src\geral.c.obj.d -o CMakeFiles\Patronicos.dir\src\geral.c.obj -c C:\Users\17898981\projetos\Patronicos\src\geral.c
+
+CMakeFiles/Patronicos.dir/src/geral.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/Patronicos.dir/src/geral.c.i"
+	C:\PROGRA~1\CODEBL~1\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\17898981\projetos\Patronicos\src\geral.c > CMakeFiles\Patronicos.dir\src\geral.c.i
+
+CMakeFiles/Patronicos.dir/src/geral.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/Patronicos.dir/src/geral.c.s"
+	C:\PROGRA~1\CODEBL~1\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\17898981\projetos\Patronicos\src\geral.c -o CMakeFiles\Patronicos.dir\src\geral.c.s
+
+CMakeFiles/Patronicos.dir/src/jogo.c.obj: CMakeFiles/Patronicos.dir/flags.make
+CMakeFiles/Patronicos.dir/src/jogo.c.obj: CMakeFiles/Patronicos.dir/includes_C.rsp
+CMakeFiles/Patronicos.dir/src/jogo.c.obj: C:/Users/17898981/projetos/Patronicos/src/jogo.c
+CMakeFiles/Patronicos.dir/src/jogo.c.obj: CMakeFiles/Patronicos.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\17898981\projetos\Patronicos\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/Patronicos.dir/src/jogo.c.obj"
+	C:\PROGRA~1\CODEBL~1\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Patronicos.dir/src/jogo.c.obj -MF CMakeFiles\Patronicos.dir\src\jogo.c.obj.d -o CMakeFiles\Patronicos.dir\src\jogo.c.obj -c C:\Users\17898981\projetos\Patronicos\src\jogo.c
+
+CMakeFiles/Patronicos.dir/src/jogo.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/Patronicos.dir/src/jogo.c.i"
+	C:\PROGRA~1\CODEBL~1\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\17898981\projetos\Patronicos\src\jogo.c > CMakeFiles\Patronicos.dir\src\jogo.c.i
+
+CMakeFiles/Patronicos.dir/src/jogo.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/Patronicos.dir/src/jogo.c.s"
+	C:\PROGRA~1\CODEBL~1\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\17898981\projetos\Patronicos\src\jogo.c -o CMakeFiles\Patronicos.dir\src\jogo.c.s
+
 CMakeFiles/Patronicos.dir/src/main.c.obj: CMakeFiles/Patronicos.dir/flags.make
 CMakeFiles/Patronicos.dir/src/main.c.obj: CMakeFiles/Patronicos.dir/includes_C.rsp
 CMakeFiles/Patronicos.dir/src/main.c.obj: C:/Users/17898981/projetos/Patronicos/src/main.c
 CMakeFiles/Patronicos.dir/src/main.c.obj: CMakeFiles/Patronicos.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\17898981\projetos\Patronicos\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/Patronicos.dir/src/main.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\17898981\projetos\Patronicos\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/Patronicos.dir/src/main.c.obj"
 	C:\PROGRA~1\CODEBL~1\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Patronicos.dir/src/main.c.obj -MF CMakeFiles\Patronicos.dir\src\main.c.obj.d -o CMakeFiles\Patronicos.dir\src\main.c.obj -c C:\Users\17898981\projetos\Patronicos\src\main.c
 
 CMakeFiles/Patronicos.dir/src/main.c.i: cmake_force
@@ -88,18 +133,24 @@ CMakeFiles/Patronicos.dir/src/main.c.s: cmake_force
 
 # Object files for target Patronicos
 Patronicos_OBJECTS = \
+"CMakeFiles/Patronicos.dir/src/gerais.c.obj" \
+"CMakeFiles/Patronicos.dir/src/geral.c.obj" \
+"CMakeFiles/Patronicos.dir/src/jogo.c.obj" \
 "CMakeFiles/Patronicos.dir/src/main.c.obj"
 
 # External object files for target Patronicos
 Patronicos_EXTERNAL_OBJECTS =
 
+Patronicos.exe: CMakeFiles/Patronicos.dir/src/gerais.c.obj
+Patronicos.exe: CMakeFiles/Patronicos.dir/src/geral.c.obj
+Patronicos.exe: CMakeFiles/Patronicos.dir/src/jogo.c.obj
 Patronicos.exe: CMakeFiles/Patronicos.dir/src/main.c.obj
 Patronicos.exe: CMakeFiles/Patronicos.dir/build.make
 Patronicos.exe: C:/Users/17898981/projetos/Patronicos/allegro/lib/liballegro_monolith-debug.dll.a
 Patronicos.exe: CMakeFiles/Patronicos.dir/linkLibs.rsp
 Patronicos.exe: CMakeFiles/Patronicos.dir/objects1.rsp
 Patronicos.exe: CMakeFiles/Patronicos.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\17898981\projetos\Patronicos\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable Patronicos.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\17898981\projetos\Patronicos\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking C executable Patronicos.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\Patronicos.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

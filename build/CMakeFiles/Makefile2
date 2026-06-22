@@ -44,10 +44,10 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "C:\Program Files\CodeBlocks\MinGW\bin\cmake.exe"
+CMAKE_COMMAND = "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe"
 
 # The command to remove a file.
-RM = "C:\Program Files\CodeBlocks\MinGW\bin\cmake.exe" -E rm -f
+RM = "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -84,12 +84,12 @@ clean: CMakeFiles/Patronicos.dir/clean
 CMakeFiles/Patronicos.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Patronicos.dir\build.make CMakeFiles/Patronicos.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Patronicos.dir\build.make CMakeFiles/Patronicos.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\17898981\projetos\Patronicos\build\CMakeFiles --progress-num=1,2 "Built target Patronicos"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\17898981\projetos\Patronicos\build\CMakeFiles --progress-num=1,2,3,4,5 "Built target Patronicos"
 .PHONY : CMakeFiles/Patronicos.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/Patronicos.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\17898981\projetos\Patronicos\build\CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\17898981\projetos\Patronicos\build\CMakeFiles 5
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/Patronicos.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\17898981\projetos\Patronicos\build\CMakeFiles 0
 .PHONY : CMakeFiles/Patronicos.dir/rule
@@ -101,7 +101,7 @@ Patronicos: CMakeFiles/Patronicos.dir/rule
 # codegen rule for target.
 CMakeFiles/Patronicos.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Patronicos.dir\build.make CMakeFiles/Patronicos.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\17898981\projetos\Patronicos\build\CMakeFiles --progress-num=1,2 "Finished codegen for target Patronicos"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\17898981\projetos\Patronicos\build\CMakeFiles --progress-num=1,2,3,4,5 "Finished codegen for target Patronicos"
 .PHONY : CMakeFiles/Patronicos.dir/codegen
 
 # clean rule for target.

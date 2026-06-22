@@ -45,7 +45,11 @@ endif()
 
 # --- ALVO DO PROJETO ---
 
-add_executable(Patronicos src/main.c)
+file(GLOB_RECURSE SOURCES
+    "${CMAKE_SOURCE_DIR}/src/*.c"
+)
+
+add_executable(Patronicos ${SOURCES})
 
 target_include_directories(Patronicos PRIVATE ${ALLEGRO_INCLUDE_DIR})
 

@@ -47,10 +47,10 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "C:\Program Files\CodeBlocks\MinGW\bin\cmake.exe"
+CMAKE_COMMAND = "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe"
 
 # The command to remove a file.
-RM = "C:\Program Files\CodeBlocks\MinGW\bin\cmake.exe" -E rm -f
+RM = "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -67,7 +67,7 @@ CMAKE_BINARY_DIR = C:\Users\17898981\projetos\Patronicos\build
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "No interactive CMake dialog available..."
-	"C:\Program Files\CodeBlocks\MinGW\bin\cmake.exe" -E echo "No interactive CMake dialog available."
+	"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E echo "No interactive CMake dialog available."
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -77,7 +77,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake to regenerate build system..."
-	"C:\Program Files\CodeBlocks\MinGW\bin\cmake.exe" --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -128,6 +128,78 @@ Patronicos/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Patronicos.dir\build.make CMakeFiles/Patronicos.dir/build
 .PHONY : Patronicos/fast
 
+src/gerais.obj: src/gerais.c.obj
+.PHONY : src/gerais.obj
+
+# target to build an object file
+src/gerais.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Patronicos.dir\build.make CMakeFiles/Patronicos.dir/src/gerais.c.obj
+.PHONY : src/gerais.c.obj
+
+src/gerais.i: src/gerais.c.i
+.PHONY : src/gerais.i
+
+# target to preprocess a source file
+src/gerais.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Patronicos.dir\build.make CMakeFiles/Patronicos.dir/src/gerais.c.i
+.PHONY : src/gerais.c.i
+
+src/gerais.s: src/gerais.c.s
+.PHONY : src/gerais.s
+
+# target to generate assembly for a file
+src/gerais.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Patronicos.dir\build.make CMakeFiles/Patronicos.dir/src/gerais.c.s
+.PHONY : src/gerais.c.s
+
+src/geral.obj: src/geral.c.obj
+.PHONY : src/geral.obj
+
+# target to build an object file
+src/geral.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Patronicos.dir\build.make CMakeFiles/Patronicos.dir/src/geral.c.obj
+.PHONY : src/geral.c.obj
+
+src/geral.i: src/geral.c.i
+.PHONY : src/geral.i
+
+# target to preprocess a source file
+src/geral.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Patronicos.dir\build.make CMakeFiles/Patronicos.dir/src/geral.c.i
+.PHONY : src/geral.c.i
+
+src/geral.s: src/geral.c.s
+.PHONY : src/geral.s
+
+# target to generate assembly for a file
+src/geral.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Patronicos.dir\build.make CMakeFiles/Patronicos.dir/src/geral.c.s
+.PHONY : src/geral.c.s
+
+src/jogo.obj: src/jogo.c.obj
+.PHONY : src/jogo.obj
+
+# target to build an object file
+src/jogo.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Patronicos.dir\build.make CMakeFiles/Patronicos.dir/src/jogo.c.obj
+.PHONY : src/jogo.c.obj
+
+src/jogo.i: src/jogo.c.i
+.PHONY : src/jogo.i
+
+# target to preprocess a source file
+src/jogo.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Patronicos.dir\build.make CMakeFiles/Patronicos.dir/src/jogo.c.i
+.PHONY : src/jogo.c.i
+
+src/jogo.s: src/jogo.c.s
+.PHONY : src/jogo.s
+
+# target to generate assembly for a file
+src/jogo.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Patronicos.dir\build.make CMakeFiles/Patronicos.dir/src/jogo.c.s
+.PHONY : src/jogo.c.s
+
 src/main.obj: src/main.c.obj
 .PHONY : src/main.obj
 
@@ -161,6 +233,15 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... Patronicos
+	@echo ... src/gerais.obj
+	@echo ... src/gerais.i
+	@echo ... src/gerais.s
+	@echo ... src/geral.obj
+	@echo ... src/geral.i
+	@echo ... src/geral.s
+	@echo ... src/jogo.obj
+	@echo ... src/jogo.i
+	@echo ... src/jogo.s
 	@echo ... src/main.obj
 	@echo ... src/main.i
 	@echo ... src/main.s

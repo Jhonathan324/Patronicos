@@ -2,48 +2,48 @@ CMakeFiles/Patronicos.dir/src/main.c.obj: \
  C:\Users\17898981\projetos\Patronicos\src\main.c \
  C:/Users/17898981/projetos/Patronicos/allegro/include/allegro5/allegro.h \
  C:/Users/17898981/projetos/Patronicos/allegro/include/allegro5/base.h \
- C:/Program\ Files/CodeBlocks/MinGW/x86_64-w64-mingw32/include/errno.h \
- C:/Program\ Files/CodeBlocks/MinGW/x86_64-w64-mingw32/include/crtdefs.h \
- C:/Program\ Files/CodeBlocks/MinGW/x86_64-w64-mingw32/include/corecrt.h \
- C:/Program\ Files/CodeBlocks/MinGW/x86_64-w64-mingw32/include/_mingw.h \
- C:/Program\ Files/CodeBlocks/MinGW/x86_64-w64-mingw32/include/_mingw_mac.h \
- C:/Program\ Files/CodeBlocks/MinGW/x86_64-w64-mingw32/include/_mingw_secapi.h \
- C:/Program\ Files/CodeBlocks/MinGW/x86_64-w64-mingw32/include/vadefs.h \
- C:/Program\ Files/CodeBlocks/MinGW/x86_64-w64-mingw32/include/sdks/_mingw_ddk.h \
- C:/Program\ Files/CodeBlocks/MinGW/lib/gcc/x86_64-w64-mingw32/14.2.0/include/limits.h \
- C:/Program\ Files/CodeBlocks/MinGW/lib/gcc/x86_64-w64-mingw32/14.2.0/include/syslimits.h \
- C:/Program\ Files/CodeBlocks/MinGW/x86_64-w64-mingw32/include/limits.h \
- C:/Program\ Files/CodeBlocks/MinGW/lib/gcc/x86_64-w64-mingw32/14.2.0/include/stdarg.h \
- C:/Program\ Files/CodeBlocks/MinGW/x86_64-w64-mingw32/include/stdarg.h \
- C:/Program\ Files/CodeBlocks/MinGW/x86_64-w64-mingw32/include/_mingw_stdarg.h \
- C:/Program\ Files/CodeBlocks/MinGW/lib/gcc/x86_64-w64-mingw32/14.2.0/include/stddef.h \
- C:/Program\ Files/CodeBlocks/MinGW/x86_64-w64-mingw32/include/stddef.h \
- C:/Program\ Files/CodeBlocks/MinGW/x86_64-w64-mingw32/include/stdlib.h \
- C:/Program\ Files/CodeBlocks/MinGW/x86_64-w64-mingw32/include/corecrt_wstdlib.h \
- C:/Program\ Files/CodeBlocks/MinGW/x86_64-w64-mingw32/include/sec_api/stdlib_s.h \
- C:/Program\ Files/CodeBlocks/MinGW/x86_64-w64-mingw32/include/malloc.h \
- C:/Program\ Files/CodeBlocks/MinGW/lib/gcc/x86_64-w64-mingw32/14.2.0/include/mm_malloc.h \
- C:/Program\ Files/CodeBlocks/MinGW/x86_64-w64-mingw32/include/time.h \
- C:/Program\ Files/CodeBlocks/MinGW/x86_64-w64-mingw32/include/sys/timeb.h \
- C:/Program\ Files/CodeBlocks/MinGW/x86_64-w64-mingw32/include/sec_api/sys/timeb_s.h \
- C:/Program\ Files/CodeBlocks/MinGW/x86_64-w64-mingw32/include/_timeval.h \
- C:/Program\ Files/CodeBlocks/MinGW/x86_64-w64-mingw32/include/pthread_time.h \
- C:/Program\ Files/CodeBlocks/MinGW/x86_64-w64-mingw32/include/string.h \
- C:/Program\ Files/CodeBlocks/MinGW/x86_64-w64-mingw32/include/sec_api/string_s.h \
- C:/Program\ Files/CodeBlocks/MinGW/x86_64-w64-mingw32/include/sys/types.h \
- C:/Program\ Files/CodeBlocks/MinGW/x86_64-w64-mingw32/include/_mingw_off_t.h \
+ C:/PROGRA~1/CODEBL~1/MinGW/x86_64-w64-mingw32/include/errno.h \
+ C:/PROGRA~1/CODEBL~1/MinGW/x86_64-w64-mingw32/include/crtdefs.h \
+ C:/PROGRA~1/CODEBL~1/MinGW/x86_64-w64-mingw32/include/_mingw.h \
+ C:/PROGRA~1/CODEBL~1/MinGW/x86_64-w64-mingw32/include/_mingw_mac.h \
+ C:/PROGRA~1/CODEBL~1/MinGW/x86_64-w64-mingw32/include/_mingw_secapi.h \
+ C:/PROGRA~1/CODEBL~1/MinGW/x86_64-w64-mingw32/include/vadefs.h \
+ C:/PROGRA~1/CODEBL~1/MinGW/x86_64-w64-mingw32/include/sdks/_mingw_directx.h \
+ C:/PROGRA~1/CODEBL~1/MinGW/x86_64-w64-mingw32/include/sdks/_mingw_ddk.h \
+ C:/PROGRA~1/CODEBL~1/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed/limits.h \
+ C:/PROGRA~1/CODEBL~1/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed/syslimits.h \
+ C:/PROGRA~1/CODEBL~1/MinGW/x86_64-w64-mingw32/include/limits.h \
+ C:/PROGRA~1/CODEBL~1/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/stdarg.h \
+ C:/PROGRA~1/CODEBL~1/MinGW/x86_64-w64-mingw32/include/stdarg.h \
+ C:/PROGRA~1/CODEBL~1/MinGW/x86_64-w64-mingw32/include/_mingw_stdarg.h \
+ C:/PROGRA~1/CODEBL~1/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/stddef.h \
+ C:/PROGRA~1/CODEBL~1/MinGW/x86_64-w64-mingw32/include/stddef.h \
+ C:/PROGRA~1/CODEBL~1/MinGW/x86_64-w64-mingw32/include/stdlib.h \
+ C:/PROGRA~1/CODEBL~1/MinGW/x86_64-w64-mingw32/include/sec_api/stdlib_s.h \
+ C:/PROGRA~1/CODEBL~1/MinGW/x86_64-w64-mingw32/include/malloc.h \
+ C:/PROGRA~1/CODEBL~1/MinGW/x86_64-w64-mingw32/include/time.h \
+ C:/PROGRA~1/CODEBL~1/MinGW/x86_64-w64-mingw32/include/_timeval.h \
+ C:/PROGRA~1/CODEBL~1/MinGW/x86_64-w64-mingw32/include/sys/timeb.h \
+ C:/PROGRA~1/CODEBL~1/MinGW/x86_64-w64-mingw32/include/sec_api/sys/timeb_s.h \
+ C:/PROGRA~1/CODEBL~1/MinGW/x86_64-w64-mingw32/include/pthread_time.h \
+ C:/PROGRA~1/CODEBL~1/MinGW/x86_64-w64-mingw32/include/string.h \
+ C:/PROGRA~1/CODEBL~1/MinGW/x86_64-w64-mingw32/include/sec_api/string_s.h \
+ C:/PROGRA~1/CODEBL~1/MinGW/x86_64-w64-mingw32/include/sys/types.h \
+ C:/PROGRA~1/CODEBL~1/MinGW/x86_64-w64-mingw32/include/_mingw_off_t.h \
  C:/Users/17898981/projetos/Patronicos/allegro/include/allegro5/internal/alconfig.h \
  C:/Users/17898981/projetos/Patronicos/allegro/include/allegro5/platform/alplatf.h \
  C:/Users/17898981/projetos/Patronicos/allegro/include/allegro5/platform/almngw32.h \
- C:/Program\ Files/CodeBlocks/MinGW/x86_64-w64-mingw32/include/io.h \
- C:/Program\ Files/CodeBlocks/MinGW/x86_64-w64-mingw32/include/fcntl.h \
- C:/Program\ Files/CodeBlocks/MinGW/x86_64-w64-mingw32/include/direct.h \
+ C:/PROGRA~1/CODEBL~1/MinGW/x86_64-w64-mingw32/include/io.h \
+ C:/PROGRA~1/CODEBL~1/MinGW/x86_64-w64-mingw32/include/fcntl.h \
+ C:/PROGRA~1/CODEBL~1/MinGW/x86_64-w64-mingw32/include/direct.h \
  C:/Users/17898981/projetos/Patronicos/allegro/include/allegro5/platform/astdint.h \
- C:/Program\ Files/CodeBlocks/MinGW/x86_64-w64-mingw32/include/inttypes.h \
- C:/Program\ Files/CodeBlocks/MinGW/lib/gcc/x86_64-w64-mingw32/14.2.0/include/stdint.h \
- C:/Program\ Files/CodeBlocks/MinGW/x86_64-w64-mingw32/include/stdint.h \
+ C:/PROGRA~1/CODEBL~1/MinGW/x86_64-w64-mingw32/include/inttypes.h \
+ C:/PROGRA~1/CODEBL~1/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/stdint.h \
+ C:/PROGRA~1/CODEBL~1/MinGW/x86_64-w64-mingw32/include/stdint.h \
+ C:/PROGRA~1/CODEBL~1/MinGW/x86_64-w64-mingw32/include/_mingw_print_push.h \
+ C:/PROGRA~1/CODEBL~1/MinGW/x86_64-w64-mingw32/include/_mingw_print_pop.h \
  C:/Users/17898981/projetos/Patronicos/allegro/include/allegro5/platform/astdbool.h \
- C:/Program\ Files/CodeBlocks/MinGW/lib/gcc/x86_64-w64-mingw32/14.2.0/include/stdbool.h \
+ C:/PROGRA~1/CODEBL~1/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/stdbool.h \
  C:/Users/17898981/projetos/Patronicos/allegro/include/allegro5/altime.h \
  C:/Users/17898981/projetos/Patronicos/allegro/include/allegro5/bitmap.h \
  C:/Users/17898981/projetos/Patronicos/allegro/include/allegro5/color.h \
@@ -60,7 +60,7 @@ CMakeFiles/Patronicos.dir/src/main.c.obj: \
  C:/Users/17898981/projetos/Patronicos/allegro/include/allegro5/config.h \
  C:/Users/17898981/projetos/Patronicos/allegro/include/allegro5/cpu.h \
  C:/Users/17898981/projetos/Patronicos/allegro/include/allegro5/debug.h \
- C:/Program\ Files/CodeBlocks/MinGW/x86_64-w64-mingw32/include/assert.h \
+ C:/PROGRA~1/CODEBL~1/MinGW/x86_64-w64-mingw32/include/assert.h \
  C:/Users/17898981/projetos/Patronicos/allegro/include/allegro5/drawing.h \
  C:/Users/17898981/projetos/Patronicos/allegro/include/allegro5/error.h \
  C:/Users/17898981/projetos/Patronicos/allegro/include/allegro5/fixed.h \
@@ -92,9 +92,8 @@ CMakeFiles/Patronicos.dir/src/main.c.obj: \
  C:/Users/17898981/projetos/Patronicos/allegro/include/allegro5/allegro_audio.h \
  C:/Users/17898981/projetos/Patronicos/allegro/include/allegro5/allegro_acodec.h \
  C:/Users/17898981/projetos/Patronicos/allegro/include/allegro5/allegro_image.h \
- C:/Program\ Files/CodeBlocks/MinGW/x86_64-w64-mingw32/include/stdio.h \
- C:/Program\ Files/CodeBlocks/MinGW/x86_64-w64-mingw32/include/corecrt_stdio_config.h \
- C:/Program\ Files/CodeBlocks/MinGW/x86_64-w64-mingw32/include/swprintf.inl \
- C:/Program\ Files/CodeBlocks/MinGW/x86_64-w64-mingw32/include/sec_api/stdio_s.h \
  C:\Users\17898981\projetos\Patronicos\src\gerais.h \
+ C:/PROGRA~1/CODEBL~1/MinGW/x86_64-w64-mingw32/include/stdio.h \
+ C:/PROGRA~1/CODEBL~1/MinGW/x86_64-w64-mingw32/include/swprintf.inl \
+ C:/PROGRA~1/CODEBL~1/MinGW/x86_64-w64-mingw32/include/sec_api/stdio_s.h \
  C:\Users\17898981\projetos\Patronicos\src\X\ Macros.h

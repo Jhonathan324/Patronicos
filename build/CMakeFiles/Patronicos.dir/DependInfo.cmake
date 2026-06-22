@@ -8,6 +8,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "C:/Users/17898981/projetos/Patronicos/src/gerais.c" "CMakeFiles/Patronicos.dir/src/gerais.c.obj" "gcc" "CMakeFiles/Patronicos.dir/src/gerais.c.obj.d"
+  "C:/Users/17898981/projetos/Patronicos/src/geral.c" "CMakeFiles/Patronicos.dir/src/geral.c.obj" "gcc" "CMakeFiles/Patronicos.dir/src/geral.c.obj.d"
+  "C:/Users/17898981/projetos/Patronicos/src/jogo.c" "CMakeFiles/Patronicos.dir/src/jogo.c.obj" "gcc" "CMakeFiles/Patronicos.dir/src/jogo.c.obj.d"
   "C:/Users/17898981/projetos/Patronicos/src/main.c" "CMakeFiles/Patronicos.dir/src/main.c.obj" "gcc" "CMakeFiles/Patronicos.dir/src/main.c.obj.d"
   )
 

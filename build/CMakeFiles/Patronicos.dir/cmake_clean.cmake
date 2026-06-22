@@ -1,4 +1,10 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/Patronicos.dir/src/gerais.c.obj"
+  "CMakeFiles/Patronicos.dir/src/gerais.c.obj.d"
+  "CMakeFiles/Patronicos.dir/src/geral.c.obj"
+  "CMakeFiles/Patronicos.dir/src/geral.c.obj.d"
+  "CMakeFiles/Patronicos.dir/src/jogo.c.obj"
+  "CMakeFiles/Patronicos.dir/src/jogo.c.obj.d"
   "CMakeFiles/Patronicos.dir/src/main.c.obj"
   "CMakeFiles/Patronicos.dir/src/main.c.obj.d"
   "Patronicos.exe"
