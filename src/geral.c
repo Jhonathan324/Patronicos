@@ -83,3 +83,50 @@ void InitCenaGeral(VariveisGerais *geral){
     al_register_event_source(geral->fila_evento, al_get_mouse_event_source());
     al_register_event_source(geral->fila_evento, al_get_keyboard_event_source());
 }
+
+void ModuloEvento(VariveisGerais *geral){
+    al_wait_for_event(geral->fila_evento, &geral->evento);
+    switch(geral->evento.type){
+
+    case ALLEGRO_EVENT_DISPLAY_CLOSE:{
+        geral->rodando = false;
+    }break;
+
+    
+    case ALLEGRO_EVENT_MOUSE_AXES:
+    case ALLEGRO_EVENT_MOUSE_ENTER_DISPLAY:{
+        geral->ponto_mouse.x = geral->evento.mouse.x;
+        geral->ponto_mouse.y = geral->evento.mouse.y;
+    }break;
+
+
+    case ALLEGRO_EVENT_MOUSE_BUTTON_DOWN:{
+        if(geral->evento.mouse.button & 1){
+            printf("1\n");
+        }
+        if(geral->evento.mouse.button & 2){
+            printf("2\n");
+        }
+        if(geral->evento.mouse.button & 3){
+            printf("3\n");
+        }
+        if(geral->evento.mouse.button & 4){
+            printf("4\n");
+        }
+    }break;
+    /*
+    case ALLEGRO_EVENT_MOUSE_BUTTON_UP:{
+        if(geral->evento.mouse.button & 1){
+            printf("1\n");
+        }
+        if(geral->evento.mouse.button & 2){
+            printf("2\n");
+        }
+        if(geral->evento.mouse.button & 3){
+            printf("3\n");
+        }
+    }break;
+    */
+
+    }
+}

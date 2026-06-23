@@ -18,11 +18,10 @@ Ele introduz conceitos fundamentais de desenvolvimento de jogos:
 #include "gerais.h"
 
 VariveisGerais gerais;
-Tamanhos tamanhos;
 
 
 int main() {
-    tamanhos.escala = 0;
+    gerais.tamanhos.escala = 0;
     InitCenaGeral(&gerais);
 
     VariveisMenu menu = (VariveisMenu){AZUL};
@@ -33,24 +32,24 @@ int main() {
     
     al_start_timer(gerais.timer);
     while(gerais.rodando){
-        al_wait_for_event(gerais.fila_evento, &gerais.evento);
-        if(gerais.evento.type == ALLEGRO_EVENT_DISPLAY_CLOSE){
-            gerais.rodando = false;
+        
+        ModuloEvento(&gerais);
+        if (gerais.evento.type == ALLEGRO_EVENT_TIMER){
+        switch(gerais.cena){
+            case(CENA_MENU):{
+                LoopCenaMenu(&gerais, &menu);
+                DesenharCenaMenu(gerais, menu);
+
+                //DesenharFogo(gerais.tamanhos.tela, gerais.matriz_fogo);
+            }break;
+
+            default:{
+                gerais.cena = CENA_MENU;
+            }break;
         }
-        else if (gerais.evento.type == ALLEGRO_EVENT_TIMER){
-            switch(gerais.cena){
-                case(CENA_MENU):{
-                    DesenharCenaMenu(gerais, menu);
-                    //DesenharFogo(gerais.tamanhos.tela, gerais.matriz_fogo);
-                }break;
-
-                default:{
-                    gerais.cena = CENA_MENU;
-                }break;
-            }
 
 
-            al_flip_display();
+        al_flip_display();
         }
     }
 

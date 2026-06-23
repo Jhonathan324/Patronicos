@@ -151,6 +151,7 @@ typedef struct VariveisGerais
     ALLEGRO_EVENT evento;
     ALLEGRO_TIMER *timer;
     VMM_Ponto ponto_mouse;
+    VMM_Ponto ponto_mouse_back;
     ALLEGRO_BITMAP *textura_hud;
     VMM_Retangulo barra_de_vida;
     bool debug;
@@ -165,8 +166,6 @@ typedef struct VariveisGerais
     int botao_mouse_gira;
     int resolucao_atual[2];
     int resolucao_antiga[2];
-    float mouse_x, mouse_y;
-    float mouse_x_back, mouse_y_back;
     Tamanhos tamanhos;
     Player jogador;
     ESTADO_JOGO cena;

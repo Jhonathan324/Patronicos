@@ -83,6 +83,10 @@ void InitCenaMenu(VariveisGerais *geral, VariveisMenu *menu)
 
 }
 
+void LoopCenaMenu(VariveisGerais *geral, VariveisMenu *menu){
+    
+}
+
 void DesenharCenaMenu(VariveisGerais geral, VariveisMenu menu){
     Botao *botoes[] = {
         &menu.botao_iniciar,
