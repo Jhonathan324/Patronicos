@@ -10,6 +10,7 @@
 #include <allegro5/allegro_image.h>
 #include <allegro5/mouse.h>
 #include <allegro5/keyboard.h>
+#include <allegro5/allegro_native_dialog.h>
 #include <stdio.h>
 #include <stdbool.h>
 #include "X Macros.h"
@@ -46,32 +47,23 @@ typedef enum {
     CENA_PAUSE,
     CENA_CRIACAO,
     CENA_CONF,
-    CENA_VITORIA, 
-    CENA_DERROTA, 
-    CENA_CREDITOS, // algum dia eu vou usar
+    CENA_VITORIA,
+    CENA_DERROTA,
+    CENA_CREDITOS,
     CENA_SAIR,
-}ESTADO_JOGO;
+} ESTADO_JOGO;
 
-// elementos essenciaias
-
+// elementos essenciais
 typedef struct VMM_Retangulo {
-    float x;      // Localização em X
-    float y;      // Localização em Y
-    float w;      // Largura
-    float h;      // Altura  
+    float x, y, w, h;
 } VMM_Retangulo;
 
 typedef struct VMM_Ponto {
-    float x;        // Localização em X
-    float y;        // Localização em Y
+    float x, y;
 } VMM_Ponto;
 
-
-
-
-
 // elementos UI
-typedef struct CampoTexto{
+typedef struct CampoTexto {
     VMM_Retangulo retangulo;
     char *texto;
     ALLEGRO_COLOR cor_fundo;
@@ -80,14 +72,12 @@ typedef struct CampoTexto{
     float proporcao;
 } CampoTexto;
 
-
-typedef struct Moldura
-{
+typedef struct Moldura {
     VMM_Retangulo retangulo;
     ALLEGRO_BITMAP *textura;
 } Moldura;
 
-typedef struct Marcador{
+typedef struct Marcador {
     VMM_Retangulo retangulo;
     int timer;
     bool sobre;
@@ -97,8 +87,7 @@ typedef struct Marcador{
     ALLEGRO_BITMAP *imagem1;
 } Marcador;
 
-typedef struct Botao
-{
+typedef struct Botao {
     VMM_Retangulo retangulo;
     char *texto;
     float proporcao;
@@ -111,17 +100,14 @@ typedef struct Botao
     ALLEGRO_BITMAP *imagem;
 } Botao;
 
-typedef struct BotaoExpansivo
-{
+typedef struct BotaoExpansivo {
     int n;
     Botao botao_pai;
     Botao *botao_filho;
     bool expandido;
 } BotaoExpansivo;
 
-// Coisas mais especificas
-typedef struct Tamanhos
-{
+typedef struct Tamanhos {
     int escala;
     float tela[2];
     float menu[2];
@@ -135,21 +121,17 @@ typedef struct Tamanhos
     float bloco1[2];
 } Tamanhos;
 
-// Structs abstratas
-typedef struct Player
-{
+typedef struct Player {
     int vida;
     int coracoes;
 } Player;
 
-// Structs especicas para organizar dados
-
-typedef struct VariveisGerais
-{
+typedef struct VariveisGerais {
     ALLEGRO_DISPLAY *janela;
     ALLEGRO_EVENT_QUEUE *fila_evento;
     ALLEGRO_EVENT evento;
     ALLEGRO_TIMER *timer;
+    ALLEGRO_FONT *fonte;
     VMM_Ponto ponto_mouse;
     VMM_Ponto ponto_mouse_back;
     ALLEGRO_BITMAP *textura_hud;
@@ -173,8 +155,7 @@ typedef struct VariveisGerais
     ESTADO_JOGO cena_continuar;
 } VariveisGerais;
 
-typedef struct VariveisMenu
-{
+typedef struct VariveisMenu {
     ALLEGRO_COLOR cor_fundo;
     ALLEGRO_BITMAP *imagem;
     ALLEGRO_FONT *fonte;
@@ -185,22 +166,20 @@ typedef struct VariveisMenu
     Botao botao_sair;
 } VariveisMenu;
 
-typedef struct VariveisPause
-{
+typedef struct VariveisPause {
     ALLEGRO_COLOR cor_fundo;
     ALLEGRO_BITMAP *imagem;
+    ALLEGRO_FONT *fonte;
     Moldura moldura;
     Botao botao_iniciar;
     Botao botao_conf;
     Botao botao_sair;
 } VariveisPause;
 
-
-
-typedef struct VariveisConf
-{
+typedef struct VariveisConf {
     ALLEGRO_COLOR cor_fundo;
     ALLEGRO_BITMAP *imagem;
+    ALLEGRO_FONT *fonte;
     bool valida_fullscrean;
     int reso_inicial;
     Marcador troca_fullscreen;
@@ -211,57 +190,66 @@ typedef struct VariveisConf
     CampoTexto texto_full;
 } VariveisConf;
 
-//Funções primordiais
-
+// Funções primordiais
+bool ColisaoRetangulo(VMM_Retangulo r1, VMM_Retangulo r2);
 void DesenharRetangulo(VMM_Retangulo *retangulo, ALLEGRO_COLOR cor);
-void DesenharImagemEscala(ALLEGRO_BITMAP *textura,VMM_Retangulo *retangulo_in,float left_width,float right_width,float top_height,float bottom_height,float escala,VMM_Retangulo *retangulo_destino);
-
+void DesenharImagemEscala(ALLEGRO_BITMAP *textura, VMM_Retangulo *retangulo_in,
+                          float left_width, float right_width,
+                          float top_height, float bottom_height,
+                          float escala, VMM_Retangulo *retangulo_destino);
 
 // Funções especificas
 void GetTamanhos(Tamanhos *tamanhos);
 
-
-
-// Funções para ajustes dinamicos
+// Ajustes dinâmicos
 void CentralizarRectInRect(VMM_Retangulo *rect_pai, VMM_Retangulo *rect_filho);
 void CentralizarRectsInRectV(VMM_Retangulo *pai, VMM_Retangulo *filho[], int n, float borda_x, float borda_y);
 
-// Funções para criação de elementos dinamicos
-CampoTexto InitTexto(VMM_Retangulo *retangulo, ALLEGRO_COLOR cor_fundo, char *texto, char *imagem, ALLEGRO_FONT *fonte, ALLEGRO_COLOR cor_fonte, bool alinhado);
-void DesenharTexto( CampoTexto texto);
+// Texto
+CampoTexto InitTexto(VMM_Retangulo *retangulo, ALLEGRO_COLOR cor_fundo,
+                     char *texto, char *imagem, ALLEGRO_FONT *fonte,
+                     ALLEGRO_COLOR cor_fonte, bool alinhado);
+void DesenharTexto(CampoTexto texto);
 void DestruirTexto(CampoTexto *texto);
 
-Moldura InitMoldura( VMM_Retangulo *retangulo, char *file);
-void DesenharMoldura( Moldura moldura);
+// Moldura
+Moldura InitMoldura(VMM_Retangulo *retangulo, char *file);
+void DesenharMoldura(Moldura moldura);
 void DestruirMoldura(Moldura *moldura);
 
-Marcador InitMarcador( VMM_Retangulo *retangulo, bool ativo, char *imagem1, ALLEGRO_COLOR cor1, ALLEGRO_COLOR cor2);
-void DesenharMarcador( Marcador marcador);
+// Marcador
+Marcador InitMarcador(VMM_Retangulo *retangulo, bool ativo, char *imagem1,
+                      ALLEGRO_COLOR cor1, ALLEGRO_COLOR cor2);
+void DesenharMarcador(Marcador marcador);
 bool VerificarMarcador(Marcador *marcador, VMM_Ponto mouse, bool click);
 void DestruirMarcador(Marcador *marcador);
 
-Botao InitBotao( VMM_Retangulo *retangulo, char *imagem, char *texto, ALLEGRO_COLOR cor1, ALLEGRO_COLOR cor2, int indice, ALLEGRO_FONT *fonte, ALLEGRO_COLOR cor_fonte);
+// Botão simples
+Botao InitBotao(VMM_Retangulo *retangulo, char *imagem, char *texto,
+                ALLEGRO_COLOR cor1, ALLEGRO_COLOR cor2, int indice,
+                ALLEGRO_FONT *fonte, ALLEGRO_COLOR cor_fonte);
 void DesenharBotao(ALLEGRO_FONT *font, Botao botao);
 bool VerificarBotao(Botao *botao, VMM_Ponto mouse, bool click);
 void DestruirBotao(Botao *botao);
 
-BotaoExpansivo InitBotaoExpansivo( VMM_Retangulo *retangulo, char *imagem, char *texto, char *textos[], ALLEGRO_COLOR cor, ALLEGRO_COLOR cor2, int indice, ALLEGRO_FONT *fonte, ALLEGRO_COLOR cor_fonte, int n);
-void DesenharBotaoExpansivo( BotaoExpansivo botao);
+// Botão expansivo
+BotaoExpansivo InitBotaoExpansivo(VMM_Retangulo *retangulo, char *imagem, char *texto,
+                                  char *textos[], ALLEGRO_COLOR cor, ALLEGRO_COLOR cor2,
+                                  int indice, ALLEGRO_FONT *fonte, ALLEGRO_COLOR cor_fonte,
+                                  int n);
+void DesenharBotaoExpansivo(BotaoExpansivo botao);
 void DestruirBotaoExpansivo(BotaoExpansivo *botao);
 
-// Funções desnecessarias
+// Efeitos (fogo)
 ALLEGRO_COLOR CorFogo(char cor);
-void DesenharFogo(float tamanho_tela[2],  char matriz[][64]);
+void DesenharFogo(float tamanho_tela[2], char matriz[][64]);
 
-
-
-
-// Funções só pra tratamento de eventos
+// Eventos e inicialização geral
 void ModuloEvento(VariveisGerais *geral);
 void InitCenaGeral(VariveisGerais *geral);
 void CalcularGeral(VariveisGerais *geral);
 
-// Funções para cenas em especico
+// Cenas
 void InitCenaMenu(VariveisGerais *geral, VariveisMenu *menu);
 void LoopCenaMenu(VariveisGerais *geral, VariveisMenu *menu);
 void DesenharCenaMenu(VariveisGerais geral, VariveisMenu menu);
@@ -274,5 +262,7 @@ void InitCenaConf(VariveisGerais *geral, VariveisConf *conf);
 void LoopCenaConf(VariveisGerais *geral, VariveisConf *conf);
 void DesenharCenaConf(VariveisGerais geral, VariveisConf conf);
 
+// Função de erro 
+void ErroFatal(const char *mensagem);
 
-#endif // GERAIS_H_INCLUDED
+#endif

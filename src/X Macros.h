@@ -677,6 +677,7 @@ typedef enum {
 	VMMA_SEM_COLI,
 	VMMA_GRAMA_ON,
 	VMMA_PEDRA_ON,
+	VMMA_MADEIRA_ON,
 } TiposVMMA;
 
 

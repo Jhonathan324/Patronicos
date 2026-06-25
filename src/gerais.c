@@ -1,9 +1,14 @@
 #include "gerais.h"
+#include <string.h>
 
+
+
+// -------------------- Desenho de retângulo --------------------
 void DesenharRetangulo(VMM_Retangulo *retangulo, ALLEGRO_COLOR cor){
     al_draw_filled_rectangle(retangulo->x,retangulo->y,retangulo->x+retangulo->w,retangulo->y+retangulo->h, cor);
 }
 
+// -------------------- 9-slice com escala --------------------
 void DesenharImagemEscala(
     ALLEGRO_BITMAP *textura,
     VMM_Retangulo *retangulo_interno,
@@ -12,8 +17,8 @@ void DesenharImagemEscala(
     float altura_cima,
     float altura_baixo,
     float escala,
-    VMM_Retangulo *retangulo_destino)
-{
+    VMM_Retangulo *retangulo_destino){
+
     if (!textura || !retangulo_destino) return;
 
     float tex_w = al_get_bitmap_width(textura);
@@ -111,12 +116,11 @@ void DesenharImagemEscala(
         0);
 }
 
-
-
-
-
-
-
+// -------------------- Centralização --------------------
+void CentralizarRectInRect(VMM_Retangulo *pai, VMM_Retangulo *filho) {
+    filho->x = pai->x + (pai->w - filho->w) / 2;
+    filho->y = pai->y + (pai->h - filho->h) / 2;
+}
 
 void CentralizarRectsInRectV(VMM_Retangulo *pai, VMM_Retangulo *filho[], int n, float borda_x, float borda_y)
 {
@@ -141,101 +145,48 @@ void CentralizarRectsInRectV(VMM_Retangulo *pai, VMM_Retangulo *filho[], int n, 
     }
 }
 
+bool ColisaoRetangulo(VMM_Retangulo r1, VMM_Retangulo r2){
+    if(r1.x >= r2.x && r1.x <= r2.x + r2.w && r1.y >= r2.y && r1.y <= r2.y+r2.h) return 1;
+    else if(r1.x+r1.w >= r2.x && r1.x+r1.w <= r2.x + r2.w && r1.y >= r2.y && r1.y <= r2.y+r2.h) return 1;
+    else if(r1.x >= r2.x && r1.x <= r2.x + r2.w && r1.y+r1.h >= r2.y && r1.y+r1.h <= r2.y+r2.h) return 1;
+    else if(r1.x+r1.w >= r2.x && r1.x+r1.w <= r2.x + r2.w && r1.y+r1.h >= r2.y && r1.y+r1.h <= r2.y+r2.h) return 1;
+    else if(r2.x >= r1.x && r2.x <= r1.x + r1.w && r2.y >= r1.y && r2.y <= r1.y+r1.h) return 1;
+    else if(r2.x+r2.w >= r1.x && r2.x+r2.w <= r1.x + r1.w && r2.y >= r1.y && r2.y <= r1.y+r1.h) return 1;
+    else if(r2.x >= r1.x && r2.x <= r1.x + r1.w && r2.y+r2.h >= r1.y && r2.y+r2.h <= r1.y+r1.h) return 1;
+    else if(r2.x+r2.w >= r1.x && r2.x+r2.w <= r1.x + r1.w && r2.y+r2.h >= r1.y && r2.y+r2.h <= r1.y+r1.h) return 1;
+    else return 0;
+}
 
+// -------------------- Moldura --------------------
 Moldura InitMoldura( VMM_Retangulo *retangulo, char *file){
     Moldura moldura = {*retangulo, file ? al_load_bitmap(file) : NULL};
+    if (file && !moldura.textura) {
+        ErroFatal("Falha ao carregar moldura: ");
+    }
     return moldura;
 }
 
+void DesenharMoldura(Moldura moldura) {
+    if (moldura.textura) {
+        DesenharImagemEscala(moldura.textura, NULL,
+                             EscalaMoldura, EscalaMoldura,
+                             EscalaMoldura, EscalaMoldura,
+                             2.0f, &moldura.retangulo);
+    } else {
+        // fallback: desenha um retângulo simples
+        al_draw_rectangle(moldura.retangulo.x, moldura.retangulo.y,
+                          moldura.retangulo.x + moldura.retangulo.w,
+                          moldura.retangulo.y + moldura.retangulo.h,
+                          al_map_rgb(255,255,255), 1);
+    }
+}
+
 void DestruirMoldura(Moldura *moldura){
-    al_destroy_bitmap(moldura->textura);
+    //al_destroy_bitmap(moldura->textura);
     moldura->textura = NULL;
 }
 
-
-
-
-Botao InitBotao( VMM_Retangulo *retangulo, char *imagem, char *texto, ALLEGRO_COLOR cor1, ALLEGRO_COLOR cor2, int indice, ALLEGRO_FONT *fonte, ALLEGRO_COLOR cor_fonte)
-{
-    // texto
-    int x, y;
-    float proporcao = 1;
-    ALLEGRO_BITMAP *textura_texto = NULL;
-    if (texto)
-    {
-        x = al_get_text_width(fonte, texto);
-        y = al_get_font_line_height(fonte);
-        proporcao = (float)x / y;
-        retangulo->w = retangulo->h * proporcao;
-    }
-    // Botão
-
-    Botao botao = {
-        .retangulo = *retangulo, // retangulo
-        .texto = texto,      // texto
-        .proporcao = proporcao,  // proporcao (porporção entre a largura sobre altura)
-        .timer = 0,          // timer
-        .sobre = false,      // sobre (verificar se o mouse esta sobre)
-        .indice = indice,     // indice
-        .cor1 = cor1,       // cor1 e cor2
-        .cor2 = cor2,
-        .textura = textura_texto,                                              // textura texto
-        .imagem = imagem ? al_load_bitmap(imagem) : NULL};    // textura da imagem
-
-    float tamanho_canto;
-    if (retangulo->h >= retangulo->w)
-        tamanho_canto = retangulo->w / 2;
-    else
-        tamanho_canto = retangulo->h / 2;
-
-    return botao;
-}
-
-void DesenharBotao(ALLEGRO_FONT *font, Botao botao){
-    if (!botao.imagem)
-    {
-        DesenharRetangulo(&botao.retangulo,  (!botao.sobre) ? al_map_rgba(botao.cor1.r, botao.cor1.g, botao.cor1.b, 126) : al_map_rgba(botao.cor2.r, botao.cor2.g, botao.cor2.b, 0));
-    }
-    else
-    {
-        DesenharImagemEscala(
-            botao.imagem,
-            NULL,
-            EscalaBotao,
-            EscalaBotao,
-            EscalaBotao,
-            EscalaBotao,
-            3.0f,
-            &botao.retangulo
-        );
-        DesenharRetangulo(&botao.retangulo,  (!botao.sobre) ? al_map_rgba(botao.cor1.r, botao.cor1.g, botao.cor1.b, 126) : al_map_rgba(botao.cor2.r, botao.cor2.g, botao.cor2.b, 0));
-    }
-    if (botao.textura)
-    {
-        VMM_Retangulo retangulo_texto = botao.retangulo;
-        retangulo_texto.h *= 0.8;
-        retangulo_texto.w = retangulo_texto.h * botao.proporcao;
-        retangulo_texto.x = (botao.retangulo.x + (botao.retangulo.w - retangulo_texto.w) / 2);
-        retangulo_texto.y = (botao.retangulo.y + (botao.retangulo.h - retangulo_texto.h) / 2);
-        al_draw_text(font, botao.cor2, botao.retangulo.x, botao.retangulo.y, 0, botao.texto);
-    }
-}
-
-void DestruirBotao(Botao *botao){
-    botao->texto = NULL;
-
-    if(botao->textura){
-        al_destroy_bitmap(botao->textura);
-        botao->textura = NULL;
-    }
-
-    if(botao->imagem){
-        al_destroy_bitmap(botao->imagem);
-        botao->imagem = NULL;
-    }
-}
-
-
+// -------------------- Efeito Fogo --------------------
 ALLEGRO_COLOR CorFogo(char cor){
     switch(cor){
         case 0:  return al_map_rgba(7,7,7,0);break;
@@ -290,5 +241,255 @@ void DesenharFogo(float tamanho_tela[2],  char matriz[][64]){
             DesenharRetangulo(&(VMM_Retangulo){j*10,35*10-i*10,10,10},CorFogo(matriz[i][j]));
         }
     }
+}
 
+// -------------------- Texto --------------------
+CampoTexto InitTexto(VMM_Retangulo *retangulo, ALLEGRO_COLOR cor_fundo,
+                     char *texto, char *imagem, ALLEGRO_FONT *fonte,
+                     ALLEGRO_COLOR cor_fonte, bool alinhado) {
+    CampoTexto ct = {0};
+    ct.retangulo = *retangulo;
+    ct.texto = texto;
+    ct.cor_fundo = cor_fundo;
+    if (imagem) {
+        ct.imagem = al_load_bitmap(imagem);
+        if (!ct.imagem) {
+            ErroFatal("Falha ao carregar imagem de texto: ");
+        }
+    }
+    if (texto && fonte) {
+        int x, y, w, h;
+        al_get_text_dimensions(fonte, texto, &x, &y, &w, &h);
+        ct.proporcao = (float)w / h;
+        if (!alinhado) {
+            retangulo->w = retangulo->h * ct.proporcao;
+            ct.retangulo.w = retangulo->w;
+        }
+        ALLEGRO_BITMAP *surface = al_create_bitmap(x, y);
+        if (!surface) {
+            ErroFatal("Falha ao criar bitmap de texto.");
+        }
+        al_set_target_bitmap(surface);
+        al_clear_to_color(al_map_rgba(0,0,0,0));
+        al_draw_text(fonte, cor_fonte, 0, 0, 0, texto);
+        al_set_target_backbuffer(al_get_current_display());
+        ct.textura_texto = surface;
+    }
+    return ct;
+}
+
+void DesenharTexto(CampoTexto texto) {
+    if (texto.cor_fundo.a) {
+        al_draw_filled_rectangle(texto.retangulo.x, texto.retangulo.y,
+                                  texto.retangulo.x + texto.retangulo.w,
+                                  texto.retangulo.y + texto.retangulo.h,
+                                  texto.cor_fundo);
+    }
+    if (texto.imagem) {
+        al_draw_scaled_bitmap(texto.imagem, 0,0,
+                              al_get_bitmap_width(texto.imagem),
+                              al_get_bitmap_height(texto.imagem),
+                              texto.retangulo.x, texto.retangulo.y,
+                              texto.retangulo.w, texto.retangulo.h, 0);
+    }
+    if (texto.textura_texto) {
+        VMM_Retangulo r = texto.retangulo;
+        r.w *= 0.8;
+        r.h *= 0.8;
+        r.x += (texto.retangulo.w - r.w) / 2;
+        r.y += (texto.retangulo.h - r.h) / 2;
+        al_draw_scaled_bitmap(texto.textura_texto, 0,0,
+                              al_get_bitmap_width(texto.textura_texto),
+                              al_get_bitmap_height(texto.textura_texto),
+                              r.x, r.y, r.w, r.h, 0);
+    }
+}
+
+void DestruirTexto(CampoTexto *texto) {
+    if (texto->textura_texto) al_destroy_bitmap(texto->textura_texto);
+    if (texto->imagem) al_destroy_bitmap(texto->imagem);
+    texto->textura_texto = NULL;
+    texto->imagem = NULL;
+}
+
+// -------------------- Marcador --------------------
+Marcador InitMarcador(VMM_Retangulo *retangulo, bool ativo, char *imagem1,
+                      ALLEGRO_COLOR cor1, ALLEGRO_COLOR cor2) {
+    Marcador m = {0};
+    m.retangulo = *retangulo;
+    m.ativo = ativo;
+    m.cor1 = cor1;
+    m.cor2 = cor2;
+    if (imagem1) {
+        m.imagem1 = al_load_bitmap(imagem1);
+        if (!m.imagem1) {
+            ErroFatal("Falha ao carregar imagem de marcador: ");
+        }
+    }
+    return m;
+}
+
+void DesenharMarcador(Marcador marcador) {
+    if (marcador.imagem1) {
+        int w = al_get_bitmap_width(marcador.imagem1);
+        int h = al_get_bitmap_height(marcador.imagem1);
+        // desenha metade da imagem (ativado/desativado)
+        float sx = marcador.ativo ? w/2 : 0;
+        al_draw_scaled_bitmap(marcador.imagem1, sx, 0, w/2, h,
+                              marcador.retangulo.x, marcador.retangulo.y,
+                              marcador.retangulo.w, marcador.retangulo.h, 0);
+    }
+    if (marcador.sobre) {
+        al_draw_filled_rectangle(marcador.retangulo.x, marcador.retangulo.y,
+                                  marcador.retangulo.x + marcador.retangulo.w,
+                                  marcador.retangulo.y + marcador.retangulo.h,
+                                  marcador.cor2);
+    }
+}
+
+bool VerificarMarcador(Marcador *marcador, VMM_Ponto mouse, bool click) {
+    if (marcador->timer) {
+        if (marcador->timer > 1) marcador->timer--;
+        else {
+            marcador->timer = 0;
+            marcador->ativo = !marcador->ativo;
+            return true;
+        }
+    }
+    VMM_Retangulo r = marcador->retangulo;
+    if (mouse.x >= r.x && mouse.x <= r.x + r.w &&
+        mouse.y >= r.y && mouse.y <= r.y + r.h) {
+        marcador->sobre = true;
+        if (click) marcador->timer = 15;
+    } else {
+        marcador->sobre = false;
+    }
+    return false;
+}
+
+void DestruirMarcador(Marcador *marcador) {
+    if (marcador->imagem1) al_destroy_bitmap(marcador->imagem1);
+    marcador->imagem1 = NULL;
+}
+
+// -------------------- Botão --------------------
+Botao InitBotao(VMM_Retangulo *retangulo, char *imagem, char *texto,
+                ALLEGRO_COLOR cor1, ALLEGRO_COLOR cor2, int indice,
+                ALLEGRO_FONT *fonte, ALLEGRO_COLOR cor_fonte) {
+    Botao b = {0};
+    b.retangulo = *retangulo;
+    b.texto = texto;
+    b.cor1 = cor1;
+    b.cor2 = cor2;
+    b.indice = indice;
+    if (texto && fonte) {
+        int x, y, h, w;
+        al_get_text_dimensions(fonte, texto, &x, &y, &w, &h);
+        b.proporcao = (float)w / h;
+        retangulo->w = retangulo->h * b.proporcao;
+        b.retangulo.w = retangulo->w;
+        // cria textura do texto (opcional, aqui usamos al_draw_text diretamente)
+    }
+    if (imagem) {
+        b.imagem = al_load_bitmap(imagem);
+        if (!b.imagem) {
+            ErroFatal("Falha ao carregar imagem de botão: ");
+        }
+    }
+    return b;
+}
+
+void DesenharBotao(ALLEGRO_FONT *font, Botao botao) {
+    if (!botao.imagem) {
+        al_draw_filled_rectangle(botao.retangulo.x, botao.retangulo.y,
+                                 botao.retangulo.x + botao.retangulo.w,
+                                 botao.retangulo.y + botao.retangulo.h,
+                                 botao.sobre ? botao.cor2 : botao.cor1);
+    } else {
+        DesenharImagemEscala(botao.imagem, NULL,
+                             EscalaBotao, EscalaBotao,
+                             EscalaBotao, EscalaBotao,
+                             3.0f, &botao.retangulo);
+        if (botao.sobre) {
+            al_draw_filled_rectangle(botao.retangulo.x, botao.retangulo.y,
+                                     botao.retangulo.x + botao.retangulo.w,
+                                     botao.retangulo.y + botao.retangulo.h,
+                                     al_map_rgba(0,0,0,64));
+        }
+    }
+    if (botao.texto && font) {
+        VMM_Retangulo r = botao.retangulo;
+        r.w *= 0.8;
+        r.h *= 0.8;
+        r.x += (botao.retangulo.w - r.w) / 2;
+        r.y += (botao.retangulo.h - r.h) / 2;
+        al_draw_text(font, botao.cor2, r.x, r.y, 0, botao.texto);
+    }
+}
+
+bool VerificarBotao(Botao *botao, VMM_Ponto mouse, bool click) {
+    if (botao->timer) {
+        if (botao->timer > 1) botao->timer--;
+        else {
+            botao->timer = 0;
+            return true;
+        }
+    }
+    VMM_Retangulo r = botao->retangulo;
+    if (mouse.x >= r.x && mouse.x <= r.x + r.w &&
+        mouse.y >= r.y && mouse.y <= r.y + r.h) {
+        botao->sobre = true;
+        if (click) botao->timer = 15;
+    } else {
+        botao->sobre = false;
+    }
+    return false;
+}
+
+void DestruirBotao(Botao *botao) {
+    //if (botao->imagem) al_destroy_bitmap(botao->imagem);
+    //if (botao->textura) al_destroy_bitmap(botao->textura);
+    botao->imagem = NULL;
+    botao->textura = NULL;
+}
+
+// -------------------- Botão Expansivo --------------------
+BotaoExpansivo InitBotaoExpansivo(VMM_Retangulo *retangulo, char *imagem, char *texto,
+                                  char *textos[], ALLEGRO_COLOR cor, ALLEGRO_COLOR cor2,
+                                  int indice, ALLEGRO_FONT *fonte, ALLEGRO_COLOR cor_fonte,
+                                  int n) {
+    BotaoExpansivo be = {0};
+    be.n = n;
+    be.botao_pai = InitBotao(retangulo, imagem, texto, cor, cor2, indice, fonte, cor_fonte);
+    be.botao_filho = malloc(n * sizeof(Botao));
+    if (!be.botao_filho) {
+        ErroFatal("Falha ao alocar memória para botões filhos.");
+    }
+    for (int i = 0; i < n; i++) {
+        VMM_Retangulo r = *retangulo;
+        r.y += retangulo->h * (i + 1);
+        be.botao_filho[i] = InitBotao(&r, imagem, textos[i], cor, cor2, indice, fonte, cor_fonte);
+    }
+    be.expandido = false;
+    return be;
+}
+
+void DesenharBotaoExpansivo(BotaoExpansivo botao) {
+    DesenharBotao(NULL, botao.botao_pai);
+    if (botao.expandido) {
+        for (int i = 0; i < botao.n; i++) {
+            DesenharBotao(NULL, botao.botao_filho[i]);
+        }
+    }
+}
+
+void DestruirBotaoExpansivo(BotaoExpansivo *botao) {
+    DestruirBotao(&botao->botao_pai);
+    if (botao->botao_filho) {
+        for (int i = 0; i < botao->n; i++) {
+            DestruirBotao(&botao->botao_filho[i]);
+        }
+        free(botao->botao_filho);
+        botao->botao_filho = NULL;
+    }
 }
