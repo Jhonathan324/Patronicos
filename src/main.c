@@ -33,13 +33,19 @@ int main() {
     InitCenaMapa(&gerais, &mapa);
 
     al_start_timer(gerais.timer);
-    double tempo_inicial;
-    double tempo_final;
+    struct timespec ts;
+    timespec_get(&ts, TIME_UTC);
+    double  tempo_inicial;
+    double  tempo_final= 
+    ts.tv_sec * 1000.0 +
+    ts.tv_nsec / 1000000.0;
     while (gerais.rodando) {
-        tempo_inicial = al_get_timer_count(gerais.timer);
+        timespec_get(&ts, TIME_UTC);
+        tempo_inicial = 
+        ts.tv_sec * 1000.0 +
+        ts.tv_nsec / 1000000.0;
         ModuloEvento(&gerais);
         if (gerais.evento.type == ALLEGRO_EVENT_TIMER) {
-            double delta_t = 10.0 / 60.0; // fixo, pois o timer é 60 FPS
             switch (gerais.cena) {
                 case CENA_MENU:
                     LoopCenaMenu(&gerais, &menu);
@@ -55,7 +61,10 @@ int main() {
                     break;
                 case CENA_JOGO:
                     LoopCenaJogo(&gerais, &jogo,(tempo_inicial - tempo_final) );
-                    tempo_final =  al_get_timer_count(gerais.timer);
+                    timespec_get(&ts, TIME_UTC);
+                    tempo_final =
+                    ts.tv_sec * 1000.0 +
+                    ts.tv_nsec / 1000000.0;
                     DesenharCenaJogo(gerais, jogo);
                     break;
                 case CENA_CRIACAO:

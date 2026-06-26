@@ -13,6 +13,7 @@
 #include <allegro5/allegro_native_dialog.h>
 #include <stdio.h>
 #include <stdbool.h>
+#include <time.h>
 #include "X Macros.h"
 
 #define CORCORFUNDO (20 , 20 , 20 )
@@ -55,7 +56,10 @@ typedef enum {
 
 // elementos essenciais
 typedef struct VMM_Retangulo {
-    float x, y, w, h;
+    float x;
+    float y;
+    float w;
+    float h;
 } VMM_Retangulo;
 
 typedef struct VMM_Ponto {

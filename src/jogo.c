@@ -43,8 +43,8 @@ VMM_Retangulo MapaTiles(int n)
 
 void DesenharMapa(VariveisGerais geral, Mapa mapa, Camera camera, int tamanho_bloco[2])
 {
-    int tela_w = geral.resolucao_atual[0];
-    int tela_h = geral.resolucao_atual[1];
+    int tela_w = geral.tamanhos.tela[0];    
+    int tela_h = geral.tamanhos.tela[1];
 
     
     int i = camera.y / tamanho_bloco[1];
@@ -71,7 +71,7 @@ void DesenharMapa(VariveisGerais geral, Mapa mapa, Camera camera, int tamanho_bl
     }
 }
 
-double VMM_Clamp(double x, double maximo, double minimo){
+double VMM_Clamp(double x,  double minimo, double maximo){
     if(x > maximo) return maximo;
     if(x < minimo) return minimo;
     return x;
@@ -122,7 +122,7 @@ void redimencionar_jogador(PlayerInJogo *jogador, VMM_Ponto local)
     jogador->retangulo_coli.y = jogador->posicao_y;
 }
 
-void CalcularPlayer(ALLEGRO_KEYBOARD_STATE *teclado, PlayerInJogo *jogador, double delta_frame, Camera *camera, Mapa mapa, int tamanho_bloco[2], int tamanhos_tela[2])
+void CalcularPlayer(ALLEGRO_KEYBOARD_STATE *teclado, PlayerInJogo *jogador, double  delta_frame, Camera *camera, Mapa mapa, int tamanho_bloco[2], int tamanhos_tela[2])
 {
     double movi_v = 1.0, movi_h = 0.0;
     // Se vida <= 0, perde coração e volta ao spawn
@@ -149,6 +149,8 @@ void CalcularPlayer(ALLEGRO_KEYBOARD_STATE *teclado, PlayerInJogo *jogador, doub
     // Pulo
     jogador->pulo -= delta_frame;
     if (jogador->pulo < 0) jogador->pulo = 0.0;
+    //printf("delta frame %lf\n",delta_frame);
+    //printf("pulo %lf\n\n",jogador->pulo);
 
     // Gravidade e pulo
     
@@ -191,18 +193,12 @@ void CalcularPlayer(ALLEGRO_KEYBOARD_STATE *teclado, PlayerInJogo *jogador, doub
     jogador->retangulo_coli.x = jogador->posicao_x;
     jogador->coli_h = ColisaoComMapa(&jogador->retangulo_coli, mapa, tamanho_bloco, tamanhos_tela, *camera);
     if (jogador->coli_h) {
+        printf("coli h\n");
         jogador->velocidade_x = 0;
         jogador->posicao_x = jogador->posicao_x_back;
         jogador->retangulo_coli.x = jogador->posicao_x_back;
     }
-    printf("posi X:%f  \n",jogador->posicao_x);
-    printf("posi Y:%f\n\n",jogador->posicao_y);
 
-    printf("movi X:%f  \n",movi_h);
-    printf("movi Y:%f\n\n",movi_v);
-
-    printf("vel X:%f  \n",jogador->velocidade_x);
-    printf("vel Y:%f\n\n",jogador->velocidade_y);
 
     
     // Lógica de ataque (simplificada)
@@ -376,7 +372,7 @@ Inimigo InitInimigo(VMM_Retangulo retangulo_img, VMM_Retangulo retangulo_area, V
     return inimigo;
 }
 
-void CalcularInimigo(Inimigo *inimigo, double delta_frame, Camera *camera, Mapa mapa, int tamanho_bloco[2], int tamanhos_tela[2])
+void CalcularInimigo(Inimigo *inimigo, double  delta_frame, Camera *camera, Mapa mapa, int tamanho_bloco[2], int tamanhos_tela[2])
 {
     // Se estiver fora da tela, não calcula
     if (inimigo->retangulo_coli.x < camera->x - tamanhos_tela[0] ||
@@ -474,33 +470,23 @@ void DesenharInimigo(Inimigo inimigo, ALLEGRO_BITMAP *sprite_atlas, Camera camer
 // -------------------------------------------------------------
 bool ColisaoComMapa(VMM_Retangulo *retangulo, Mapa mapa, int tamanho_bloco[2], int tamanhos_tela[2], Camera camera)
 {
-    // Percorre apenas os blocos que podem intersectar o retângulo
-    int inicio_i = (retangulo->y + camera.y) / tamanho_bloco[1];
-    int fim_i = (retangulo->y + camera.y + retangulo->h) / tamanho_bloco[1] + 1;
-    int inicio_j = (retangulo->x + camera.x) / tamanho_bloco[0];
-    int fim_j = (retangulo->x + camera.x + retangulo->w) / tamanho_bloco[0] + 1;
-
-    if (inicio_i < 0) inicio_i = 0;
-    if (inicio_j < 0) inicio_j = 0;
-    if (fim_i >= TamanhosMapaY) fim_i = TamanhosMapaY - 1;
-    if (fim_j >= TamanhosMapaX) fim_j = TamanhosMapaX - 1;
-
-    for (int i = inicio_i; i <= fim_i; i++) {
-        for (int j = inicio_j; j <= fim_j; j++) {
+   for(int i = camera.y/tamanho_bloco[1]; i*tamanho_bloco[1] < tamanhos_tela[1] + camera.y && i < TamanhosMapaY; i++){
+        for(int j = camera.x/tamanho_bloco[0]; j*tamanho_bloco[0] < tamanhos_tela[0] + camera.x && j < TamanhosMapaX; j++) {
             if (mapa.tiles[i][j]) {
                 TiposVMMA tipo = CalcularTipoVMMA(mapa.tiles[i][j]);
                 // Verifica se o bloco tem colisão
-                if (tipo == VMMA_GRAMA_ON || tipo == VMMA_PEDRA_ON || tipo == VMMA_MADEIRA_ON) {
-                    VMM_Retangulo bloco = {
-                        j * tamanho_bloco[0] - camera.x,
-                        i * tamanho_bloco[1] - camera.y,
-                        tamanho_bloco[0],
-                        tamanho_bloco[1]
-                    };
-                    // Intersecção entre retângulo e bloco
-                    if (ColisaoRetangulo(bloco, *retangulo)) {
-                        return true;
-                    }
+                switch(tipo){
+                    case VMMA_GRAMA_ON:
+                    case VMMA_PEDRA_ON:
+                    case VMMA_MADEIRA_ON:{
+                                    VMM_Retangulo bloco = {
+                                        j*tamanho_bloco[0], 
+                                        i*tamanho_bloco[1], 
+                                        tamanho_bloco[0], 
+                                        tamanho_bloco[1]};
+                                    if(ColisaoRetangulo(bloco, *retangulo))
+                                                    return true;
+                    }break;
                 }
             }
         }
@@ -637,7 +623,7 @@ void CalcularCenaJogo(VariveisGerais *geral, VariveisJogo *jogo)
     jogo->tamanho_bloco[1] = geral->tamanhos.bloco1[1];
 }
 
-void LoopCenaJogo(VariveisGerais *geral, VariveisJogo *jogo, double delta_t)
+void LoopCenaJogo(VariveisGerais *geral, VariveisJogo *jogo, double  delta_t)
 {
     // Teclado
     ALLEGRO_KEYBOARD_STATE key_state;
@@ -671,30 +657,29 @@ void LoopCenaJogo(VariveisGerais *geral, VariveisJogo *jogo, double delta_t)
     // Câmera segue o jogador
     if(-jogo->camera.x+jogo->jogador.retangulo_coli.x + jogo->jogador.retangulo_coli.w > geral->resolucao_atual[0]*0.6) 
         jogo->camera.x = jogo->jogador.retangulo_coli.x  + jogo->jogador.retangulo_coli.w - geral->resolucao_atual[0]*0.6;
-
+    
     else if(-jogo->camera.x+jogo->jogador.retangulo_coli.x  < geral->resolucao_atual[0]*0.4)
         jogo->camera.x = jogo->jogador.retangulo_coli.x - geral->resolucao_atual[0]*0.4;
-
+    
     if(-jogo->camera.y+jogo->jogador.retangulo_coli.y + jogo->jogador.retangulo_coli.h > geral->resolucao_atual[1]*0.7) 
         jogo->camera.y = jogo->jogador.retangulo_coli.y  + jogo->jogador.retangulo_coli.h - geral->resolucao_atual[1]*0.7;
-
+    
     else if(-jogo->camera.y+jogo->jogador.retangulo_coli.y  < geral->resolucao_atual[1]*0.3)
         jogo->camera.y = jogo->jogador.retangulo_coli.y - geral->resolucao_atual[1]*0.3;
-
+    
     if(jogo->camera.x<0)
         jogo->camera.x=0;
         
     if(jogo->camera.y<0)
         jogo->camera.y=0;
+    
 
+    //jogo->camera.x = jogo->jogador.retangulo_coli.x -geral->tamanhos.tela[0]/2; 
+    //jogo->camera.y = jogo->jogador.retangulo_coli.y -geral->tamanhos.tela[1]/2; 
     
 
     // Atualiza jogador
     CalcularPlayer(&key_state, &jogo->jogador, delta_t, &jogo->camera, jogo->mapa, jogo->tamanho_bloco, geral->resolucao_atual);
-
-    printf("CAMERA X:%f  \n", jogo->camera.x);
-    printf("CAMERA Y:%f\n\n", jogo->camera.y);
-
     // Atualiza inimigos (apenas os que estão na tela)
     VMM_Retangulo camera_rect = {
         jogo->camera.x - geral->resolucao_atual[0]/2,

@@ -79,8 +79,8 @@ typedef struct Mapa
 
 typedef struct Camera
 {
-    int x;
-    int y;
+    float x;
+    float y;
 } Camera;
 
 typedef struct VariveisJogo
@@ -100,7 +100,7 @@ typedef struct VariveisJogo
 // Funções principais
 void InitCenaJogo(VariveisGerais *geral, VariveisJogo *jogo);
 void CalcularCenaJogo(VariveisGerais *geral, VariveisJogo *jogo);
-void LoopCenaJogo(VariveisGerais *geral, VariveisJogo *jogo, double delta_t);
+void LoopCenaJogo(VariveisGerais *geral, VariveisJogo *jogo, double  delta_t);
 void DesenharCenaJogo(VariveisGerais geral, VariveisJogo jogo);
 
 // Funções auxiliares
@@ -109,11 +109,11 @@ void DesenharHud(VariveisGerais geral, VariveisJogo jogo);
 VMM_Retangulo MapaTiles(int n);
 
 PlayerInJogo InitPlayer(VMM_Retangulo retangulo_img, VMM_Retangulo retangulo_coli, char *img, float vida, int coracoes);
-void CalcularPlayer(ALLEGRO_KEYBOARD_STATE *teclado, PlayerInJogo *player, double delta_frame, Camera *camera, Mapa mapa, int tamanho_bloco[2], int tamanhos_tela[2]);
+void CalcularPlayer(ALLEGRO_KEYBOARD_STATE *teclado, PlayerInJogo *player, double  delta_frame, Camera *camera, Mapa mapa, int tamanho_bloco[2], int tamanhos_tela[2]);
 void DesenharPlayer(PlayerInJogo player, Camera camera);
 
 Inimigo InitInimigo(VMM_Retangulo retangulo_img, VMM_Retangulo retangulo_area, VMM_Retangulo retangulo_coli, float vida, float dano, int index);
-void CalcularInimigo(Inimigo *inimigo, double delta_frame, Camera *camera, Mapa mapa, int tamanho_bloco[2], int tamanhos_tela[2]);
+void CalcularInimigo(Inimigo *inimigo, double  delta_frame, Camera *camera, Mapa mapa, int tamanho_bloco[2], int tamanhos_tela[2]);
 void DesenharInimigo(Inimigo inimigo, ALLEGRO_BITMAP *sprite_atlas, Camera camera);
 
 TiposVMMA CalcularTipoVMMA(int n);
