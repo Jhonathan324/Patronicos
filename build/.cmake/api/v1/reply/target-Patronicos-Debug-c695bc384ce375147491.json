@@ -76,7 +76,11 @@
 				0,
 				1,
 				2,
-				3
+				3,
+				4,
+				5,
+				6,
+				7
 			]
 		}
 	],
@@ -121,12 +125,22 @@
 				0,
 				1,
 				2,
-				3
+				3,
+				4,
+				5,
+				6,
+				7
 			]
 		}
 	],
 	"sources" : 
 	[
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/conf.c",
+			"sourceGroupIndex" : 0
+		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
@@ -149,6 +163,24 @@
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "src/main.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/mapa.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/menu.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/pause.c",
 			"sourceGroupIndex" : 0
 		}
 	],

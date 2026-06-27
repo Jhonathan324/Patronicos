@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "Patronicos::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Patronicos-Debug-9346e65b1b85bab5d1ae.json",
+					"jsonFile" : "target-Patronicos-Debug-c695bc384ce375147491.json",
 					"name" : "Patronicos",
 					"projectIndex" : 0
 				}
@@ -55,6 +55,6 @@
 	"version" : 
 	{
 		"major" : 2,
-		"minor" : 8
+		"minor" : 7
 	}
 }

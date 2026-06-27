@@ -47,10 +47,10 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe"
+CMAKE_COMMAND = "C:\Program Files\CodeBlocks\MinGW\bin\cmake.exe"
 
 # The command to remove a file.
-RM = "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E rm -f
+RM = "C:\Program Files\CodeBlocks\MinGW\bin\cmake.exe" -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -67,7 +67,7 @@ CMAKE_BINARY_DIR = C:\Users\17898981\projetos\Patronicos\build
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "No interactive CMake dialog available..."
-	"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E echo "No interactive CMake dialog available."
+	"C:\Program Files\CodeBlocks\MinGW\bin\cmake.exe" -E echo "No interactive CMake dialog available."
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -77,7 +77,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake to regenerate build system..."
-	"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	"C:\Program Files\CodeBlocks\MinGW\bin\cmake.exe" --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -127,6 +127,30 @@ Patronicos: cmake_check_build_system
 Patronicos/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Patronicos.dir\build.make CMakeFiles/Patronicos.dir/build
 .PHONY : Patronicos/fast
+
+src/conf.obj: src/conf.c.obj
+.PHONY : src/conf.obj
+
+# target to build an object file
+src/conf.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Patronicos.dir\build.make CMakeFiles/Patronicos.dir/src/conf.c.obj
+.PHONY : src/conf.c.obj
+
+src/conf.i: src/conf.c.i
+.PHONY : src/conf.i
+
+# target to preprocess a source file
+src/conf.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Patronicos.dir\build.make CMakeFiles/Patronicos.dir/src/conf.c.i
+.PHONY : src/conf.c.i
+
+src/conf.s: src/conf.c.s
+.PHONY : src/conf.s
+
+# target to generate assembly for a file
+src/conf.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Patronicos.dir\build.make CMakeFiles/Patronicos.dir/src/conf.c.s
+.PHONY : src/conf.c.s
 
 src/gerais.obj: src/gerais.c.obj
 .PHONY : src/gerais.obj
@@ -224,6 +248,78 @@ src/main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Patronicos.dir\build.make CMakeFiles/Patronicos.dir/src/main.c.s
 .PHONY : src/main.c.s
 
+src/mapa.obj: src/mapa.c.obj
+.PHONY : src/mapa.obj
+
+# target to build an object file
+src/mapa.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Patronicos.dir\build.make CMakeFiles/Patronicos.dir/src/mapa.c.obj
+.PHONY : src/mapa.c.obj
+
+src/mapa.i: src/mapa.c.i
+.PHONY : src/mapa.i
+
+# target to preprocess a source file
+src/mapa.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Patronicos.dir\build.make CMakeFiles/Patronicos.dir/src/mapa.c.i
+.PHONY : src/mapa.c.i
+
+src/mapa.s: src/mapa.c.s
+.PHONY : src/mapa.s
+
+# target to generate assembly for a file
+src/mapa.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Patronicos.dir\build.make CMakeFiles/Patronicos.dir/src/mapa.c.s
+.PHONY : src/mapa.c.s
+
+src/menu.obj: src/menu.c.obj
+.PHONY : src/menu.obj
+
+# target to build an object file
+src/menu.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Patronicos.dir\build.make CMakeFiles/Patronicos.dir/src/menu.c.obj
+.PHONY : src/menu.c.obj
+
+src/menu.i: src/menu.c.i
+.PHONY : src/menu.i
+
+# target to preprocess a source file
+src/menu.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Patronicos.dir\build.make CMakeFiles/Patronicos.dir/src/menu.c.i
+.PHONY : src/menu.c.i
+
+src/menu.s: src/menu.c.s
+.PHONY : src/menu.s
+
+# target to generate assembly for a file
+src/menu.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Patronicos.dir\build.make CMakeFiles/Patronicos.dir/src/menu.c.s
+.PHONY : src/menu.c.s
+
+src/pause.obj: src/pause.c.obj
+.PHONY : src/pause.obj
+
+# target to build an object file
+src/pause.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Patronicos.dir\build.make CMakeFiles/Patronicos.dir/src/pause.c.obj
+.PHONY : src/pause.c.obj
+
+src/pause.i: src/pause.c.i
+.PHONY : src/pause.i
+
+# target to preprocess a source file
+src/pause.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Patronicos.dir\build.make CMakeFiles/Patronicos.dir/src/pause.c.i
+.PHONY : src/pause.c.i
+
+src/pause.s: src/pause.c.s
+.PHONY : src/pause.s
+
+# target to generate assembly for a file
+src/pause.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Patronicos.dir\build.make CMakeFiles/Patronicos.dir/src/pause.c.s
+.PHONY : src/pause.c.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -233,6 +329,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... Patronicos
+	@echo ... src/conf.obj
+	@echo ... src/conf.i
+	@echo ... src/conf.s
 	@echo ... src/gerais.obj
 	@echo ... src/gerais.i
 	@echo ... src/gerais.s
@@ -245,6 +344,15 @@ help:
 	@echo ... src/main.obj
 	@echo ... src/main.i
 	@echo ... src/main.s
+	@echo ... src/mapa.obj
+	@echo ... src/mapa.i
+	@echo ... src/mapa.s
+	@echo ... src/menu.obj
+	@echo ... src/menu.i
+	@echo ... src/menu.s
+	@echo ... src/pause.obj
+	@echo ... src/pause.i
+	@echo ... src/pause.s
 .PHONY : help
 
 

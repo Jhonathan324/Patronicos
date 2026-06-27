@@ -1,26 +1,50 @@
 [
 {
   "directory": "C:/Users/17898981/projetos/Patronicos/build",
-  "command": "C:\\PROGRA~1\\CODEBL~1\\MinGW\\bin\\gcc.exe  @CMakeFiles/Patronicos.dir/includes_C.rsp -g -std=gnu11 -o CMakeFiles\\Patronicos.dir\\src\\gerais.c.obj -c C:\\Users\\17898981\\projetos\\Patronicos\\src\\gerais.c",
+  "command": "C:\\PROGRA~1\\CODEBL~1\\MinGW\\bin\\clang.exe  @CMakeFiles/Patronicos.dir/includes_C.rsp -g -std=gnu11 -o CMakeFiles\\Patronicos.dir\\src\\conf.c.obj -c C:\\Users\\17898981\\projetos\\Patronicos\\src\\conf.c",
+  "file": "C:/Users/17898981/projetos/Patronicos/src/conf.c",
+  "output": "CMakeFiles/Patronicos.dir/src/conf.c.obj"
+},
+{
+  "directory": "C:/Users/17898981/projetos/Patronicos/build",
+  "command": "C:\\PROGRA~1\\CODEBL~1\\MinGW\\bin\\clang.exe  @CMakeFiles/Patronicos.dir/includes_C.rsp -g -std=gnu11 -o CMakeFiles\\Patronicos.dir\\src\\gerais.c.obj -c C:\\Users\\17898981\\projetos\\Patronicos\\src\\gerais.c",
   "file": "C:/Users/17898981/projetos/Patronicos/src/gerais.c",
   "output": "CMakeFiles/Patronicos.dir/src/gerais.c.obj"
 },
 {
   "directory": "C:/Users/17898981/projetos/Patronicos/build",
-  "command": "C:\\PROGRA~1\\CODEBL~1\\MinGW\\bin\\gcc.exe  @CMakeFiles/Patronicos.dir/includes_C.rsp -g -std=gnu11 -o CMakeFiles\\Patronicos.dir\\src\\geral.c.obj -c C:\\Users\\17898981\\projetos\\Patronicos\\src\\geral.c",
+  "command": "C:\\PROGRA~1\\CODEBL~1\\MinGW\\bin\\clang.exe  @CMakeFiles/Patronicos.dir/includes_C.rsp -g -std=gnu11 -o CMakeFiles\\Patronicos.dir\\src\\geral.c.obj -c C:\\Users\\17898981\\projetos\\Patronicos\\src\\geral.c",
   "file": "C:/Users/17898981/projetos/Patronicos/src/geral.c",
   "output": "CMakeFiles/Patronicos.dir/src/geral.c.obj"
 },
 {
   "directory": "C:/Users/17898981/projetos/Patronicos/build",
-  "command": "C:\\PROGRA~1\\CODEBL~1\\MinGW\\bin\\gcc.exe  @CMakeFiles/Patronicos.dir/includes_C.rsp -g -std=gnu11 -o CMakeFiles\\Patronicos.dir\\src\\jogo.c.obj -c C:\\Users\\17898981\\projetos\\Patronicos\\src\\jogo.c",
+  "command": "C:\\PROGRA~1\\CODEBL~1\\MinGW\\bin\\clang.exe  @CMakeFiles/Patronicos.dir/includes_C.rsp -g -std=gnu11 -o CMakeFiles\\Patronicos.dir\\src\\jogo.c.obj -c C:\\Users\\17898981\\projetos\\Patronicos\\src\\jogo.c",
   "file": "C:/Users/17898981/projetos/Patronicos/src/jogo.c",
   "output": "CMakeFiles/Patronicos.dir/src/jogo.c.obj"
 },
 {
   "directory": "C:/Users/17898981/projetos/Patronicos/build",
-  "command": "C:\\PROGRA~1\\CODEBL~1\\MinGW\\bin\\gcc.exe  @CMakeFiles/Patronicos.dir/includes_C.rsp -g -std=gnu11 -o CMakeFiles\\Patronicos.dir\\src\\main.c.obj -c C:\\Users\\17898981\\projetos\\Patronicos\\src\\main.c",
+  "command": "C:\\PROGRA~1\\CODEBL~1\\MinGW\\bin\\clang.exe  @CMakeFiles/Patronicos.dir/includes_C.rsp -g -std=gnu11 -o CMakeFiles\\Patronicos.dir\\src\\main.c.obj -c C:\\Users\\17898981\\projetos\\Patronicos\\src\\main.c",
   "file": "C:/Users/17898981/projetos/Patronicos/src/main.c",
   "output": "CMakeFiles/Patronicos.dir/src/main.c.obj"
+},
+{
+  "directory": "C:/Users/17898981/projetos/Patronicos/build",
+  "command": "C:\\PROGRA~1\\CODEBL~1\\MinGW\\bin\\clang.exe  @CMakeFiles/Patronicos.dir/includes_C.rsp -g -std=gnu11 -o CMakeFiles\\Patronicos.dir\\src\\mapa.c.obj -c C:\\Users\\17898981\\projetos\\Patronicos\\src\\mapa.c",
+  "file": "C:/Users/17898981/projetos/Patronicos/src/mapa.c",
+  "output": "CMakeFiles/Patronicos.dir/src/mapa.c.obj"
+},
+{
+  "directory": "C:/Users/17898981/projetos/Patronicos/build",
+  "command": "C:\\PROGRA~1\\CODEBL~1\\MinGW\\bin\\clang.exe  @CMakeFiles/Patronicos.dir/includes_C.rsp -g -std=gnu11 -o CMakeFiles\\Patronicos.dir\\src\\menu.c.obj -c C:\\Users\\17898981\\projetos\\Patronicos\\src\\menu.c",
+  "file": "C:/Users/17898981/projetos/Patronicos/src/menu.c",
+  "output": "CMakeFiles/Patronicos.dir/src/menu.c.obj"
+},
+{
+  "directory": "C:/Users/17898981/projetos/Patronicos/build",
+  "command": "C:\\PROGRA~1\\CODEBL~1\\MinGW\\bin\\clang.exe  @CMakeFiles/Patronicos.dir/includes_C.rsp -g -std=gnu11 -o CMakeFiles\\Patronicos.dir\\src\\pause.c.obj -c C:\\Users\\17898981\\projetos\\Patronicos\\src\\pause.c",
+  "file": "C:/Users/17898981/projetos/Patronicos/src/pause.c",
+  "output": "CMakeFiles/Patronicos.dir/src/pause.c.obj"
 }
 ]

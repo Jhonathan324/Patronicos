@@ -5,20 +5,20 @@
 		{
 			"compiler" : 
 			{
-				"id" : "GNU",
+				"id" : "Clang",
 				"implicit" : 
 				{
 					"includeDirectories" : 
 					[
-						"C:/Program Files/CodeBlocks/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include",
-						"C:/Program Files/CodeBlocks/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed",
-						"C:/Program Files/CodeBlocks/MinGW/x86_64-w64-mingw32/include"
+						"C:/Program Files/CodeBlocks/MinGW/lib/clang/19/include",
+						"C:/Program Files/CodeBlocks/MinGW/x86_64-w64-mingw32/include",
+						"C:/Program Files/CodeBlocks/MinGW/include"
 					],
 					"linkDirectories" : 
 					[
-						"C:/Program Files/CodeBlocks/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0",
-						"C:/Program Files/CodeBlocks/MinGW/lib/gcc",
+						"C:/Program Files/CodeBlocks/MinGW/lib/gcc/x86_64-w64-mingw32/14.2.0",
 						"C:/Program Files/CodeBlocks/MinGW/x86_64-w64-mingw32/lib",
+						"C:/Program Files/CodeBlocks/MinGW/x86_64-w64-mingw32/mingw/lib",
 						"C:/Program Files/CodeBlocks/MinGW/lib"
 					],
 					"linkFrameworkDirectories" : [],
@@ -28,20 +28,19 @@
 						"gcc",
 						"moldname",
 						"mingwex",
-						"pthread",
 						"advapi32",
 						"shell32",
 						"user32",
 						"kernel32",
-						"iconv",
 						"mingw32",
 						"gcc",
 						"moldname",
-						"mingwex"
+						"mingwex",
+						"kernel32"
 					]
 				},
-				"path" : "C:/Program Files/CodeBlocks/MinGW/bin/gcc.exe",
-				"version" : "8.1.0"
+				"path" : "C:/Program Files/CodeBlocks/MinGW/bin/clang.exe",
+				"version" : "19.1.7"
 			},
 			"language" : "C",
 			"sourceFileExtensions" : 
