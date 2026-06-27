@@ -1,6 +1,4 @@
-#include "jogo.h"
-#include <stdio.h>
-#include <stdlib.h>
+#include "../hdr/jogo.h"
 #include <math.h>
 
 // -------------------------------------------------------------
@@ -484,7 +482,7 @@ bool ColisaoComMapa(VMM_Retangulo *retangulo, Mapa mapa, int tamanho_bloco[2], i
                                         i*tamanho_bloco[1], 
                                         tamanho_bloco[0], 
                                         tamanho_bloco[1]};
-                                    if(ColisaoRetangulo(bloco, *retangulo))
+                                    if(ColisaoRetangulo(&bloco, retangulo))
                                                     return true;
                     }break;
                 }

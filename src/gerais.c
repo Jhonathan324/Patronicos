@@ -1,4 +1,4 @@
-#include "gerais.h"
+#include "../hdr/geral.h"
 #include <string.h>
 
 
@@ -145,16 +145,35 @@ void CentralizarRectsInRectV(VMM_Retangulo *pai, VMM_Retangulo *filho[], int n, 
     }
 }
 
-bool ColisaoRetangulo(VMM_Retangulo r1, VMM_Retangulo r2){
-    if(r1.x >= r2.x && r1.x <= r2.x + r2.w && r1.y >= r2.y && r1.y <= r2.y+r2.h) return 1;
-    else if(r1.x+r1.w >= r2.x && r1.x+r1.w <= r2.x + r2.w && r1.y >= r2.y && r1.y <= r2.y+r2.h) return 1;
-    else if(r1.x >= r2.x && r1.x <= r2.x + r2.w && r1.y+r1.h >= r2.y && r1.y+r1.h <= r2.y+r2.h) return 1;
-    else if(r1.x+r1.w >= r2.x && r1.x+r1.w <= r2.x + r2.w && r1.y+r1.h >= r2.y && r1.y+r1.h <= r2.y+r2.h) return 1;
-    else if(r2.x >= r1.x && r2.x <= r1.x + r1.w && r2.y >= r1.y && r2.y <= r1.y+r1.h) return 1;
-    else if(r2.x+r2.w >= r1.x && r2.x+r2.w <= r1.x + r1.w && r2.y >= r1.y && r2.y <= r1.y+r1.h) return 1;
-    else if(r2.x >= r1.x && r2.x <= r1.x + r1.w && r2.y+r2.h >= r1.y && r2.y+r2.h <= r1.y+r1.h) return 1;
-    else if(r2.x+r2.w >= r1.x && r2.x+r2.w <= r1.x + r1.w && r2.y+r2.h >= r1.y && r2.y+r2.h <= r1.y+r1.h) return 1;
-    else return 0;
+bool ColisaoRetangulo(VMM_Retangulo *r1, VMM_Retangulo *r2){
+    float Amin, Amax, Bmin, Bmax;
+    // Horizontal intersection
+    Amin = r1->x;
+    Amax = Amin + r1->w;
+    Bmin = r2->x;
+    Bmax = Bmin + r2->w;
+    if (Bmin > Amin) {
+        Amin = Bmin;
+    }
+    if (Bmax < Amax) {
+        Amax = Bmax;
+    }
+    if (Amax < Amin)
+        return false;
+    // Vertical intersection
+    Amin = r1->y;
+    Amax = Amin + r1->h;
+    Bmin = r2->y;
+    Bmax = Bmin + r2->h;
+    if (Bmin > Amin) {
+        Amin = Bmin;
+    }
+    if (Bmax < Amax) {
+        Amax = Bmax;
+    }
+    if (Amax < Amin)
+        return false;
+    return true;
 }
 
 // -------------------- Moldura --------------------
@@ -368,7 +387,7 @@ bool VerificarMarcador(Marcador *marcador, VMM_Ponto mouse, bool click) {
 }
 
 void DestruirMarcador(Marcador *marcador) {
-    if (marcador->imagem1) al_destroy_bitmap(marcador->imagem1);
+    //if (marcador->imagem1) al_destroy_bitmap(marcador->imagem1);
     marcador->imagem1 = NULL;
 }
 

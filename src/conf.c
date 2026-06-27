@@ -1,4 +1,5 @@
-#include "gerais.h"
+#include "../hdr/geral.h"
+#include "../hdr/ui_cenas.h"
 #include <stdio.h>
 
 void InitCenaConf(VariveisGerais *geral, VariveisConf *conf) {

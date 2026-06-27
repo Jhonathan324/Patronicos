@@ -1,7 +1,9 @@
 #ifndef MAPA_H_INCLUDED
 #define MAPA_H_INCLUDED
 
-#include "jogo.h"
+#include "types.h"
+#include "utils.h"
+
 
 typedef struct MarcadorBloco {
     VMM_Retangulo retangulo;
@@ -10,6 +12,14 @@ typedef struct MarcadorBloco {
     ALLEGRO_COLOR cor1;
     ALLEGRO_COLOR cor2;
 } MarcadorBloco;
+
+typedef struct Mapa
+{
+    int n;
+    uint16_t tiles[TamanhosMapaY][TamanhosMapaX];
+    ALLEGRO_BITMAP *textura;
+    VMM_Retangulo area_vitoria;
+} Mapa;
 
 typedef struct VariaveisMapa {
     ALLEGRO_COLOR cor_fundo;
@@ -32,8 +42,18 @@ typedef struct VariaveisMapa {
     MarcadorBloco marcador[600];
 } VariaveisMapa;
 
+// Funções auxiliares
+void DesenharMapa(VariveisGerais geral, Mapa mapa, Camera camera, int tamanho_bloco[2]);
+VMM_Retangulo MapaTiles(int n);
+
+// Persistência do mapa
+void SalvarMapa(Mapa *c);
+void CarregarMapa(Mapa *c, int n);
+
 void InitCenaMapa(VariveisGerais *geral, VariaveisMapa *mapa);
 void LoopCenaMapa(VariveisGerais *geral, VariaveisMapa *mapa);
 void DesenharCenaMapa(VariveisGerais geral, VariaveisMapa mapa);
+
+
 
 #endif

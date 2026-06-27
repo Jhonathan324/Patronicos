@@ -1,11 +1,9 @@
 #ifndef JOGO_H_INCLUDED
 #define JOGO_H_INCLUDED
 
-#include "gerais.h"
-#include "X Macros.h"
+#include "types.h"
+#include "mapa.h"
 
-#define TamanhosMapaX 512
-#define TamanhosMapaY 128
 
 typedef struct PlayerInJogo
 {
@@ -69,19 +67,6 @@ typedef struct Inimigo
     TiposInimigo index;
 } Inimigo;
 
-typedef struct Mapa
-{
-    int n;
-    uint16_t tiles[TamanhosMapaY][TamanhosMapaX];
-    ALLEGRO_BITMAP *textura;
-    VMM_Retangulo area_vitoria;
-} Mapa;
-
-typedef struct Camera
-{
-    float x;
-    float y;
-} Camera;
 
 typedef struct VariveisJogo
 {
@@ -103,10 +88,8 @@ void CalcularCenaJogo(VariveisGerais *geral, VariveisJogo *jogo);
 void LoopCenaJogo(VariveisGerais *geral, VariveisJogo *jogo, double  delta_t);
 void DesenharCenaJogo(VariveisGerais geral, VariveisJogo jogo);
 
-// Funções auxiliares
-void DesenharMapa(VariveisGerais geral, Mapa mapa, Camera camera, int tamanho_bloco[2]);
+
 void DesenharHud(VariveisGerais geral, VariveisJogo jogo);
-VMM_Retangulo MapaTiles(int n);
 
 PlayerInJogo InitPlayer(VMM_Retangulo retangulo_img, VMM_Retangulo retangulo_coli, char *img, float vida, int coracoes);
 void CalcularPlayer(ALLEGRO_KEYBOARD_STATE *teclado, PlayerInJogo *player, double  delta_frame, Camera *camera, Mapa mapa, int tamanho_bloco[2], int tamanhos_tela[2]);
@@ -119,9 +102,5 @@ void DesenharInimigo(Inimigo inimigo, ALLEGRO_BITMAP *sprite_atlas, Camera camer
 TiposVMMA CalcularTipoVMMA(int n);
 bool ColisaoComMapa(VMM_Retangulo *retangulo, Mapa mapa, int tamanho_bloco[2], int tamanhos_tela[2], Camera camera);
 void ColisaoPlayerInimigo(PlayerInJogo *jogador, Inimigo *inimigo);
-
-// Persistência do mapa
-void SalvarMapa(Mapa *c);
-void CarregarMapa(Mapa *c, int n);
 
 #endif

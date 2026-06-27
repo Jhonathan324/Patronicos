@@ -8,9 +8,10 @@
 #include <allegro5/mouse.h>
 #include <allegro5/keyboard.h>
 
-#include "gerais.h"
-#include "jogo.h"
-#include "mapa.h"
+#include "../hdr/geral.h"
+#include "../hdr/jogo.h"
+#include "../hdr/mapa.h"
+#include "../hdr/ui_cenas.h"
 
 
 

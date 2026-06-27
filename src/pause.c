@@ -1,4 +1,5 @@
-#include "gerais.h"
+#include "../hdr/geral.h"
+#include "../hdr/ui_cenas.h"
 
 void InitCenaPause(VariveisGerais *geral, VariveisPause *pause) {
     pause->fonte = al_load_ttf_font("../../fontes/arial.ttf", geral->tamanhos.tela[1] / 10, 0);

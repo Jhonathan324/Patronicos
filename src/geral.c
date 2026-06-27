@@ -1,8 +1,5 @@
-#include "gerais.h"
-#include <string.h>
+#include "../hdr/geral.h"
 #include <allegro5/allegro_native_dialog.h>
-#include <stdio.h>
-#include <stdlib.h>
 
 // Função de erro robusta: imprime no console, tenta caixa de diálogo e espera Enter
 void ErroFatal(const char *mensagem) {

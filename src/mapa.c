@@ -1,5 +1,4 @@
-#include "mapa.h"
-#include <string.h>
+#include "../hdr/mapa.h"
 
 // Funções auxiliares
 bool VerificarMarcadorBloco(MarcadorBloco *marcador, VMM_Ponto mouse, int rolada) {
