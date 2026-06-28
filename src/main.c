@@ -23,7 +23,7 @@ int main() {
     VariveisConf conf;
     VariveisJogo jogo;
     VariaveisMapa mapa;
-    gerais.tamanhos.escala = 0;
+    gerais.tamanhos.escala = 2;
 
     
     //Inits das cenas
@@ -69,6 +69,7 @@ int main() {
                     tempo_final =
                     ts.tv_sec * 1000.0 +
                     ts.tv_nsec / 1000000.0;
+                    al_rest(1.0/60.0);
                     break;
                 case CENA_CRIACAO:
                     LoopCenaMapa(&gerais, &mapa);
@@ -97,7 +98,7 @@ int main() {
                 gerais.resolucao_antiga[0] = gerais.resolucao_atual[0];
                 gerais.resolucao_antiga[1] = gerais.resolucao_atual[1];
             }
-            al_rest(1.0/60.0);
+            
             al_flip_display();
         }
     }

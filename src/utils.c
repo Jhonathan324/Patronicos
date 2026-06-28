@@ -257,7 +257,7 @@ void DesenharFogo(float tamanho_tela[2],  char matriz[][64]){
                 matriz[i][j] = matriz[i-1][j+1] - 1 - rand()%2;
                 if (matriz[i][j] < 0) matriz[i][j] = 0;
             }
-            DesenharRetangulo(&(VMM_Retangulo){j*10,35*10-i*10,10,10},CorFogo(matriz[i][j]));
+            DesenharRetangulo(&(VMM_Retangulo){j*(tamanho_tela[0]/64),39*(tamanho_tela[1]/40)-i*(tamanho_tela[1]/40),tamanho_tela[0]/64,tamanho_tela[1]/40},CorFogo(matriz[i][j]));
         }
     }
 }
