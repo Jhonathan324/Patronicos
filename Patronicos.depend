@@ -3,13 +3,11 @@
 	<stdio.h>
 	<stdlib.h>
 
-1782408436 source:c:\users\17898981\projetos\patronicos\src\jogo.c
-	"jogo.h"
-	<stdio.h>
-	<stdlib.h>
+1782607638 source:c:\users\17898981\projetos\patronicos\src\jogo.c
+	"../hdr/jogo.h"
 	<math.h>
 
-1782416898 source:c:\users\17898981\projetos\patronicos\src\main.c
+1782601190 source:c:\users\17898981\projetos\patronicos\src\main.c
 	<allegro5/allegro.h>
 	<allegro5/allegro_font.h>
 	<allegro5/allegro_ttf.h>
@@ -19,11 +17,12 @@
 	<allegro5/allegro_image.h>
 	<allegro5/mouse.h>
 	<allegro5/keyboard.h>
-	"gerais.h"
-	"jogo.h"
-	"mapa.h"
+	"../hdr/geral.h"
+	"../hdr/jogo.h"
+	"../hdr/mapa.h"
+	"../hdr/ui_cenas.h"
 
-1777491112 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\allegro.h
+1782596195 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\allegro.h
 	"allegro5/base.h"
 	"allegro5/altime.h"
 	"allegro5/bitmap.h"
@@ -64,7 +63,7 @@
 	"allegro5/utf8.h"
 	"allegro5/alcompat.h"
 
-1777491112 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\base.h
+1782596195 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\base.h
 	<errno.h>
 	<limits.h>
 	<limits.h>
@@ -78,7 +77,7 @@
 	<dmalloc.h>
 	"allegro5/internal/alconfig.h"
 
-1777491113 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\internal\alconfig.h
+1782596195 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\internal\alconfig.h
 	"allegro5/platform/alplatf.h"
 	"allegro5/platform/alwatcom.h"
 	"allegro5/platform/almngw32.h"
@@ -93,9 +92,9 @@
 	"allegro5/platform/astdint.h"
 	"allegro5/platform/astdbool.h"
 
-1777491113 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\platform\alplatf.h
+1782596195 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\platform\alplatf.h
 
-1777491113 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\platform\alwatcom.h
+1782596195 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\platform\alwatcom.h
 	<io.h>
 	<i86.h>
 	<conio.h>
@@ -103,145 +102,145 @@
 	<direct.h>
 	<malloc.h>
 
-1777491113 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\platform\almngw32.h
+1782596195 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\platform\almngw32.h
 	<io.h>
 	<fcntl.h>
 	<direct.h>
 	<malloc.h>
 	"allegro5/platform/alplatf.h"
 
-1777491113 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\platform\albcc32.h
+1782596195 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\platform\albcc32.h
 	<io.h>
 	<fcntl.h>
 	<direct.h>
 	<malloc.h>
 
-1777491113 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\platform\almsvc.h
+1782596195 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\platform\almsvc.h
 	<io.h>
 	<fcntl.h>
 	<direct.h>
 	<malloc.h>
 	"allegro5/platform/alplatf.h"
 
-1777491113 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\platform\aliphonecfg.h
+1782596195 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\platform\aliphonecfg.h
 	<fcntl.h>
 	<unistd.h>
 
-1777491113 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\platform\alosxcfg.h
+1782596195 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\platform\alosxcfg.h
 	"allegro5/platform/alplatf.h"
 
-1777491113 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\platform\alandroidcfg.h
+1782596195 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\platform\alandroidcfg.h
 
-1777491113 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\platform\alraspberrypicfg.h
+1782596195 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\platform\alraspberrypicfg.h
 	<fcntl.h>
 	<unistd.h>
 	<sys/types.h>
 
-1777491113 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\platform\alucfg.h
+1782596195 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\platform\alucfg.h
 	<fcntl.h>
 	<unistd.h>
 	"alunix.h"
 	"allegro5/platform/alplatf.h"
 
-1777491113 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\platform\alunix.h
+1782596195 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\platform\alunix.h
 
-1777491113 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\platform\allegro_sdl_config.h
+1782596195 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\platform\allegro_sdl_config.h
 	<fcntl.h>
 	<unistd.h>
 
-1777491113 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\platform\astdint.h
+1782596195 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\platform\astdint.h
 	<inttypes.h>
 	<stdint.h>
 	<limits.h>
 
-1777491113 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\platform\astdbool.h
+1782596195 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\platform\astdbool.h
 	<stdbool.h>
 
-1777491112 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\altime.h
+1782596195 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\altime.h
 	"allegro5/base.h"
 
-1777491112 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\bitmap.h
+1782596195 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\bitmap.h
 	"allegro5/color.h"
 
-1777491112 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\color.h
+1782596195 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\color.h
 	"allegro5/base.h"
 
-1777491112 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\bitmap_draw.h
+1782596195 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\bitmap_draw.h
 	"allegro5/bitmap.h"
 
-1777491112 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\bitmap_io.h
+1782596195 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\bitmap_io.h
 	"allegro5/bitmap.h"
 	"allegro5/file.h"
 
-1777491112 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\file.h
+1782596195 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\file.h
 	"allegro5/base.h"
 	"allegro5/path.h"
 	"allegro5/utf8.h"
 
-1777491112 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\path.h
+1782596195 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\path.h
 	"allegro5/base.h"
 	"allegro5/utf8.h"
 
-1777491113 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\utf8.h
+1782596195 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\utf8.h
 	"allegro5/base.h"
 
-1777491112 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\bitmap_lock.h
+1782596195 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\bitmap_lock.h
 	"allegro5/bitmap.h"
 
-1777491112 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\blender.h
+1782596195 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\blender.h
 	"allegro5/base.h"
 	"allegro5/color.h"
 
-1777491112 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\clipboard.h
+1782596195 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\clipboard.h
 	"allegro5/base.h"
 	"allegro5/display.h"
 	"allegro5/utf8.h"
 
-1777491112 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\display.h
+1782596195 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\display.h
 	"allegro5/bitmap.h"
 	"allegro5/color.h"
 	"allegro5/events.h"
 
-1777491112 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\events.h
+1782596195 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\events.h
 	"allegro5/altime.h"
 
-1777491112 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\config.h
+1782596195 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\config.h
 	"allegro5/file.h"
 
-1777491112 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\cpu.h
+1782596195 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\cpu.h
 	"allegro5/base.h"
 
-1777491112 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\debug.h
+1782596195 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\debug.h
 	<assert.h>
 	"allegro5/base.h"
 
-1777491112 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\drawing.h
+1782596195 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\drawing.h
 	"allegro5/color.h"
 
-1777491112 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\error.h
+1782596195 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\error.h
 	"allegro5/base.h"
 
-1777491112 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\fixed.h
+1782596195 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\fixed.h
 	"allegro5/base.h"
 
-1777491112 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\fmaths.h
+1782596195 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\fmaths.h
 	"allegro5/base.h"
 	"allegro5/fixed.h"
 	"allegro5/inline/fmaths.inl"
 
-1777491113 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\inline\fmaths.inl
+1782596195 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\inline\fmaths.inl
 	"allegro5/error.h"
 
-1777491112 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\fshook.h
+1782596195 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\fshook.h
 	"allegro5/base.h"
 	"allegro5/file.h"
 	"allegro5/path.h"
 	<sys/types.h>
 
-1777491112 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\fullscreen_mode.h
+1782596195 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\fullscreen_mode.h
 	"allegro5/base.h"
 
-1777491112 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\haptic.h
+1782596195 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\haptic.h
 	"allegro5/base.h"
 	"allegro5/display.h"
 	"allegro5/events.h"
@@ -250,78 +249,78 @@
 	"allegro5/mouse.h"
 	"allegro5/touch_input.h"
 
-1777491112 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\joystick.h
+1782596195 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\joystick.h
 	"allegro5/base.h"
 	"allegro5/events.h"
 
-1777491112 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\keyboard.h
+1782596195 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\keyboard.h
 	"allegro5/base.h"
 	"allegro5/events.h"
 	"allegro5/keycodes.h"
 
-1777491112 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\keycodes.h
+1782596195 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\keycodes.h
 
-1777491112 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\mouse.h
+1782596195 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\mouse.h
 	"allegro5/base.h"
 	"allegro5/events.h"
 
-1777491113 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\touch_input.h
+1782596195 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\touch_input.h
 	"allegro5/base.h"
 	"allegro5/events.h"
 
-1777491112 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\memory.h
+1782596195 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\memory.h
 	"allegro5/base.h"
 
-1777491112 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\monitor.h
+1782596195 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\monitor.h
 	"allegro5/base.h"
 
-1777491112 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\mouse_cursor.h
+1782596195 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\mouse_cursor.h
 	"allegro5/base.h"
 
-1777491112 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\render_state.h
+1782596195 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\render_state.h
 	"allegro5/base.h"
 
-1777491112 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\shader.h
+1782596195 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\shader.h
 	"allegro5/base.h"
 	"allegro5/transformations.h"
 
-1777491113 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\transformations.h
+1782596195 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\transformations.h
 	"allegro5/display.h"
 
-1777491112 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\system.h
+1782596195 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\system.h
 	"allegro5/config.h"
 	"allegro5/path.h"
 
-1777491112 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\threads.h
+1782596195 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\threads.h
 	"allegro5/altime.h"
 
-1777491112 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\timer.h
+1782596195 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\timer.h
 	"allegro5/base.h"
 	"allegro5/events.h"
 
-1777491113 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\tls.h
+1782596195 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\tls.h
 	"allegro5/base.h"
 
-1777491112 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\alcompat.h
+1782596195 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\alcompat.h
 
-1777491112 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\allegro_font.h
+1782596195 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\allegro_font.h
 	"allegro5/allegro.h"
 
-1777491112 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\allegro_ttf.h
+1782596195 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\allegro_ttf.h
 	"allegro5/allegro.h"
 	"allegro5/allegro_font.h"
 
-1777491112 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\allegro_primitives.h
+1782596195 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\allegro_primitives.h
 	<allegro5/allegro.h>
 
-1777491112 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\allegro_audio.h
+1782596195 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\allegro_audio.h
 	"allegro5/allegro.h"
 
-1777491112 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\allegro_acodec.h
+1782596195 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\allegro_acodec.h
 	"allegro5/allegro.h"
 	"allegro5/allegro_audio.h"
 
-1777491112 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\allegro_image.h
+1782596195 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\allegro_image.h
 	"allegro5/base.h"
 
 1782417138 c:\users\17898981\projetos\patronicos\src\gerais.h
@@ -343,19 +342,16 @@
 
 1777377462 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\internal\aintern_primitives_types.h
 
-1782418947 source:c:\users\17898981\projetos\patronicos\src\geral.c
-	"gerais.h"
-	<string.h>
-	<allegro5/allegro_native_dialog.h>
-	<stdio.h>
-	<stdlib.h>
+1782607959 source:c:\users\17898981\projetos\patronicos\src\geral.c
+	"../hdr/geral.h"
 
 1782417205 source:c:\users\17898981\projetos\patronicos\src\gerais.c
 	"gerais.h"
 	<string.h>
 
-1782412405 source:c:\users\17898981\projetos\patronicos\src\menu.c
-	"gerais.h"
+1782600774 source:c:\users\17898981\projetos\patronicos\src\menu.c
+	"../hdr/geral.h"
+	"../hdr/ui_cenas.h"
 
 1782419423 c:\users\17898981\projetos\patronicos\src\jogo.h
 	"gerais.h"
@@ -364,17 +360,69 @@
 1782406834 c:\users\17898981\projetos\patronicos\src\mapa.h
 	"jogo.h"
 
-1782412490 source:c:\users\17898981\projetos\patronicos\src\conf.c
-	"gerais.h"
+1782600607 source:c:\users\17898981\projetos\patronicos\src\conf.c
+	"../hdr/geral.h"
+	"../hdr/ui_cenas.h"
 	<stdio.h>
 
-1782407933 source:c:\users\17898981\projetos\patronicos\src\pause.c
-	"gerais.h"
+1782600769 source:c:\users\17898981\projetos\patronicos\src\pause.c
+	"../hdr/geral.h"
+	"../hdr/ui_cenas.h"
 
-1782413397 source:c:\users\17898981\projetos\patronicos\src\mapa.c
-	"mapa.h"
-	<string.h>
+1782606894 source:c:\users\17898981\projetos\patronicos\src\mapa.c
+	"../hdr/mapa.h"
 
-1777491112 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\allegro_native_dialog.h
+1782596195 c:\users\17898981\projetos\patronicos\allegro\include\allegro5\allegro_native_dialog.h
 	"allegro5/allegro.h"
+
+1782607997 source:c:\users\17898981\projetos\patronicos\src\ui.c
+	"../hdr/ui.h"
+
+1782608101 c:\users\17898981\projetos\patronicos\hdr\geral.h
+	"types.h"
+	"utils.h"
+
+1782601594 c:\users\17898981\projetos\patronicos\hdr\types.h
+	<allegro5/allegro.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_ttf.h>
+	<allegro5/allegro_primitives.h>
+	<allegro5/allegro_audio.h>
+	<allegro5/allegro_acodec.h>
+	<allegro5/allegro_image.h>
+	<allegro5/mouse.h>
+	<allegro5/keyboard.h>
+	<allegro5/allegro_native_dialog.h>
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<time.h>
+	<string.h>
+	"X Macros.h"
+
+1782592157 c:\users\17898981\projetos\patronicos\hdr\x macros.h
+
+1782607286 c:\users\17898981\projetos\patronicos\hdr\ui_cenas.h
+	"types.h"
+	"ui.h"
+
+1782607231 c:\users\17898981\projetos\patronicos\hdr\ui.h
+	"utils.h"
+
+1782608047 c:\users\17898981\projetos\patronicos\hdr\utils.h
+	"types.h"
+
+1782600956 c:\users\17898981\projetos\patronicos\hdr\jogo.h
+	"types.h"
+	"mapa.h"
+
+1782607316 c:\users\17898981\projetos\patronicos\hdr\mapa.h
+	"types.h"
+	"ui.h"
+
+1782608000 source:c:\users\17898981\projetos\patronicos\src\utils.c
+	"../hdr/geral.h"
+
+1782607524 source:c:\users\17898981\projetos\patronicos\src\entides.c
+	"../hdr/jogo.h"
 

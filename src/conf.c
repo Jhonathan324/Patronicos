@@ -73,7 +73,7 @@ void InitCenaConf(VariveisGerais *geral, VariveisConf *conf) {
         al_map_rgb(255,255,255)
     );
 
-    char resolucao_atual[32];
+    char *resolucao_atual = (char*) calloc(32,sizeof(char));
     sprintf(resolucao_atual, "(%d, %d)", geral->resolucao_atual[0], geral->resolucao_atual[1]);
     char *textos[] = {
         "640, 360",
@@ -149,7 +149,7 @@ void DesenharCenaConf(VariveisGerais geral, VariveisConf conf) {
     DesenharMoldura(conf.moldura);
     DesenharTexto(conf.texto_reso);
     DesenharTexto(conf.texto_full);
-    DesenharBotao(conf.fonte, conf.botao_sair);      // <-- fonte
-    DesenharBotaoExpansivo(conf.botao_reso);
+    DesenharBotao(conf.fonte, conf.botao_sair, NULL);      // <-- fonte
+    DesenharBotaoExpansivo(conf.fonte, conf.botao_reso, NULL);
     DesenharMarcador(conf.troca_fullscreen);
 }

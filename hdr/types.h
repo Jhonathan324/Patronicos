@@ -139,6 +139,7 @@ typedef struct Tamanhos {
     float inimigo1[2];
     float inimigo2[2];
     float bloco1[2];
+    float bloco2[2];
 } Tamanhos;
 
 typedef struct Player {

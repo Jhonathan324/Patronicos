@@ -2,13 +2,10 @@
 #define GERAl_H_INCLUDED
 
 #include "types.h"
+#include "utils.h"
 
 // Funções especificas
 void GetTamanhos(Tamanhos *tamanhos);
-
-// Efeitos (fogo)
-ALLEGRO_COLOR CorFogo(char cor);
-void DesenharFogo(float tamanho_tela[2], char matriz[][64]);
 
 // Eventos e inicialização geral
 void ModuloEvento(VariveisGerais *geral);

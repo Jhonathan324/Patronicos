@@ -123,12 +123,12 @@ void DesenharCenaMenu(VariveisGerais geral, VariveisMenu menu)
     };
 
     // Limpa a tela e desenha o fundo
-    al_clear_to_color(al_map_rgb(menu.cor_fundo.r, menu.cor_fundo.g, menu.cor_fundo.b));
+    //al_clear_to_color(al_map_rgb(menu.cor_fundo.r, menu.cor_fundo.g, menu.cor_fundo.b));
     al_draw_scaled_bitmap(menu.imagem, 0, 0, 640, 360, 0, 0,
                           geral.tamanhos.tela[0], geral.tamanhos.tela[1], 0);
 
     // Desenha todos os botões
     for (int i = 0; i < QuantBotao; i++) {
-        DesenharBotao(menu.fonte, *botoes[i]);
+        DesenharBotao(menu.fonte, *botoes[i], NULL);
     }
 }

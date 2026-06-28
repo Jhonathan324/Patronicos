@@ -84,7 +84,7 @@ void LoopCenaPause(VariveisGerais *geral, VariveisPause *pause) {
 
 void DesenharCenaPause(VariveisGerais geral, VariveisPause pause) {
     DesenharMoldura(pause.moldura);
-    DesenharBotao(pause.fonte, pause.botao_iniciar);  // <-- fonte como primeiro argumento
-    DesenharBotao(pause.fonte, pause.botao_conf);
-    DesenharBotao(pause.fonte, pause.botao_sair);
+    DesenharBotao(pause.fonte, pause.botao_iniciar, NULL);  // <-- fonte como primeiro argumento
+    DesenharBotao(pause.fonte, pause.botao_conf, NULL);
+    DesenharBotao(pause.fonte, pause.botao_sair, NULL);
 }

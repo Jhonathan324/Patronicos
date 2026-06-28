@@ -2,7 +2,7 @@
 #define MAPA_H_INCLUDED
 
 #include "types.h"
-#include "utils.h"
+#include "ui.h"
 
 
 typedef struct MarcadorBloco {

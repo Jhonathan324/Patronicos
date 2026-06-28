@@ -1,27 +1,5 @@
 #include "../hdr/geral.h"
-#include <allegro5/allegro_native_dialog.h>
 
-// Função de erro robusta: imprime no console, tenta caixa de diálogo e espera Enter
-void ErroFatal(const char *mensagem) {
-    fprintf(stderr, "ERRO FATAL: %s\n", mensagem);
-    // Tenta mostrar caixa de diálogo se o add-on estiver disponível
-    if (al_is_native_dialog_addon_initialized()) {
-        al_show_native_message_box(NULL, "Erro Fatal", "Falha ao carregar recurso", mensagem, NULL, ALLEGRO_MESSAGEBOX_ERROR);
-    }
-    printf("\nPressione Enter para sair...\n");
-    getchar();
-    exit(1);
-}
-
-// Função auxiliar para verificar se um arquivo existe
-int file_exists(const char *path) {
-    FILE *f = fopen(path, "rb");
-    if (f) {
-        fclose(f);
-        return 1;
-    }
-    return 0;
-}
 
 void GetTamanhos(Tamanhos *tamanhos)
 {
@@ -41,6 +19,9 @@ void GetTamanhos(Tamanhos *tamanhos)
 
     tamanhos->bloco1[0]       = tamanhos->tela[0] * (float)MedidaImgBloco      / 640 * 2;
     tamanhos->bloco1[1]       = tamanhos->tela[1] * (float)MedidaImgBloco      / 360 * 2;
+
+    tamanhos->bloco2[0]       = tamanhos->tela[0] * (float)MedidaImgBloco      / 640 * 1;
+    tamanhos->bloco2[1]       = tamanhos->tela[1] * (float)MedidaImgBloco      / 360 * 1;
 
     tamanhos->botao1[0]       = tamanhos->tela[0] * (float)MedidaImgBloco      / 640 * 2;
     tamanhos->botao1[1]       = tamanhos->tela[1] * (float)MedidaImgBloco      / 360 * 2;

@@ -38,33 +38,43 @@
 			<Add option="-Wall" />
 			<Add directory="allegro/include" />
 		</Compiler>
-		<Unit filename="src/X Macros.h" />
+		<Unit filename="hdr/X Macros.h" />
+		<Unit filename="hdr/geral.h" />
+		<Unit filename="hdr/jogo.h" />
+		<Unit filename="hdr/mapa.h" />
+		<Unit filename="hdr/types.h" />
+		<Unit filename="hdr/ui.h" />
+		<Unit filename="hdr/ui_cenas.h" />
+		<Unit filename="hdr/utils.h" />
+		<Unit filename="other/main antigo.txt" />
 		<Unit filename="src/conf.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="src/gerais.c">
+		<Unit filename="src/entides.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="src/gerais.h" />
 		<Unit filename="src/geral.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="src/jogo.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="src/jogo.h" />
-		<Unit filename="src/main antigo.txt" />
 		<Unit filename="src/main.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="src/mapa.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="src/mapa.h" />
 		<Unit filename="src/menu.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="src/pause.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/ui.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/utils.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Extensions>

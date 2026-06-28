@@ -1,5 +1,87 @@
 #include "../hdr/mapa.h"
 
+void DesenharMapa(VariveisGerais geral, Mapa mapa, Camera camera, int tamanho_bloco[2])
+{
+    int tela_w = geral.tamanhos.tela[0];    
+    int tela_h = geral.tamanhos.tela[1];
+
+    
+    int i = camera.y / tamanho_bloco[1];
+    if (i < 0) i = 0;
+    for (; i * tamanho_bloco[1] < tela_h + camera.y && i < TamanhosMapaY; i++) {
+        int j = camera.x / tamanho_bloco[0];
+        if (j < 0) j = 0;
+        for (; j * tamanho_bloco[0] < tela_w + camera.x && j < TamanhosMapaX; j++) {
+            if (mapa.tiles[i][j]) {
+                VMM_Retangulo src = MapaTiles(mapa.tiles[i][j]);
+                VMM_Retangulo dst = {
+                    j * tamanho_bloco[0] - camera.x,
+                    i * tamanho_bloco[1] - camera.y,
+                    tamanho_bloco[0],
+                    tamanho_bloco[1]
+                };
+
+                al_draw_scaled_bitmap(mapa.textura,
+                    src.x, src.y, src.w, src.h,
+                    dst.x, dst.y, dst.w, dst.h, 0);
+                
+            }
+        }
+    }
+}
+
+// -------------------------------------------------------------
+// Mapa (desenho)
+// -------------------------------------------------------------
+VMM_Retangulo MapaTiles(int n)
+{
+    VMM_Retangulo rect = {0, 0, MedidaImgBloco, MedidaImgBloco};
+    #define X(index, x_loc, y_loc, tipo) \
+        case index: { rect.x = x_loc * MedidaImgBloco; rect.y = y_loc * MedidaImgBloco; } break;
+    switch(n-1) {
+        TabelaBlocoAtlas
+    }
+    #undef X
+    return rect;
+}
+
+// -------------------------------------------------------------
+// Persistência do mapa
+// -------------------------------------------------------------
+void SalvarMapa(Mapa *c)
+{
+    char nome[64];
+    sprintf(nome, "../../map/map_%d.bin", c->n);
+    FILE *f = fopen(nome, "wb");
+    if (!f) {
+        printf("Erro ao salvar mapa %d\n", c->n);
+        return;
+    }
+    fwrite(c->tiles, sizeof(uint16_t), TamanhosMapaX * TamanhosMapaY, f);
+    fclose(f);
+    printf("Mapa %d salvo.\n", c->n);
+}
+
+void CarregarMapa(Mapa *c, int n)
+{
+    c->n = n;
+    char nome[64];
+    sprintf(nome, "../../map/map_%d.bin", c->n);
+    FILE *f = fopen(nome, "rb");
+    if (f) {
+        if (fread(c->tiles, sizeof(uint16_t), TamanhosMapaX * TamanhosMapaY, f) != TamanhosMapaX * TamanhosMapaY) {
+            printf("Erro ao ler mapa %d\n", c->n);
+        }
+        fclose(f);
+        printf("Mapa %d carregado.\n", n);
+    } else {
+        printf("Mapa %d não encontrado, gerando novo.\n", n);
+        memset(c->tiles, 0, sizeof(c->tiles));
+        SalvarMapa(c);
+    }
+}
+
+
 // Funções auxiliares
 bool VerificarMarcadorBloco(MarcadorBloco *marcador, VMM_Ponto mouse, int rolada) {
     VMM_Retangulo r = marcador->retangulo;
@@ -226,8 +308,8 @@ void DesenharCenaMapa(VariveisGerais geral, VariaveisMapa mapa) {
     DesenharMapa(geral, mapa.mapa, mapa.camera, mapa.tamanho_bloco);
 
     al_draw_filled_rectangle(mapa.selecao.x, mapa.selecao.y,
-                             mapa.selecao.x + mapa.selecao.w, mapa.selecao.y + mapa.selecao.h,
-                             al_map_rgba(0,0,0,128));
+                            mapa.selecao.x + mapa.selecao.w, mapa.selecao.y + mapa.selecao.h,
+                            al_map_rgba(0,0,0,128));
 
     DesenharMoldura(mapa.moldura_bloco);
     #define X(index, x_loc, y_loc, tipo) \
@@ -235,7 +317,7 @@ void DesenharCenaMapa(VariveisGerais geral, VariaveisMapa mapa) {
     TabelaBlocoAtlas
     #undef X
 
-    DesenharBotao(geral.fonte, mapa.botao_salvar);   // <-- fonte como primeiro argumento
-    DesenharBotao(geral.fonte, mapa.botao_carregar);
+    DesenharBotao(geral.fonte, mapa.botao_salvar, NULL);   // <-- fonte como primeiro argumento
+    DesenharBotao(geral.fonte, mapa.botao_carregar, NULL);
     DesenharMarcador(mapa.marcador_preencher);
 }

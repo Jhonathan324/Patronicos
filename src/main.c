@@ -23,8 +23,9 @@ int main() {
     VariveisConf conf;
     VariveisJogo jogo;
     VariaveisMapa mapa;
-    gerais.tamanhos.escala = 2;  
+    gerais.tamanhos.escala = 0;
 
+    
     //Inits das cenas
     InitCenaGeral(&gerais);
     InitCenaMenu(&gerais, &menu);
@@ -37,12 +38,12 @@ int main() {
     struct timespec ts;
     timespec_get(&ts, TIME_UTC);
     double  tempo_inicial;
-    double  tempo_final= 
+    double  tempo_final=
     ts.tv_sec * 1000.0 +
     ts.tv_nsec / 1000000.0;
     while (gerais.rodando) {
         timespec_get(&ts, TIME_UTC);
-        tempo_inicial = 
+        tempo_inicial =
         ts.tv_sec * 1000.0 +
         ts.tv_nsec / 1000000.0;
         ModuloEvento(&gerais);
@@ -50,6 +51,7 @@ int main() {
             switch (gerais.cena) {
                 case CENA_MENU:
                     LoopCenaMenu(&gerais, &menu);
+                    DesenharFogo(gerais.tamanhos.tela,gerais.matriz_fogo);
                     DesenharCenaMenu(gerais, menu);
                     break;
                 case CENA_PAUSE:
@@ -62,11 +64,11 @@ int main() {
                     break;
                 case CENA_JOGO:
                     LoopCenaJogo(&gerais, &jogo,(tempo_inicial - tempo_final) );
+                    DesenharCenaJogo(gerais, jogo);
                     timespec_get(&ts, TIME_UTC);
                     tempo_final =
                     ts.tv_sec * 1000.0 +
                     ts.tv_nsec / 1000000.0;
-                    DesenharCenaJogo(gerais, jogo);
                     break;
                 case CENA_CRIACAO:
                     LoopCenaMapa(&gerais, &mapa);
@@ -79,8 +81,8 @@ int main() {
                     gerais.cena = CENA_MENU;
                     break;
             }
-            
-            
+
+
 
             // Troca de resolução
             if (gerais.troca_reso) {
@@ -95,7 +97,7 @@ int main() {
                 gerais.resolucao_antiga[0] = gerais.resolucao_atual[0];
                 gerais.resolucao_antiga[1] = gerais.resolucao_atual[1];
             }
-
+            al_rest(1.0/60.0);
             al_flip_display();
         }
     }
